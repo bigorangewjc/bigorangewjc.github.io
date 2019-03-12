@@ -7,14 +7,18 @@
   
   <title>机群ip地址更换后，路由器设置方法 | BigOrange&#39;s Personal Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="机群ip地址更换后，路由器设置方法（TP-LINK）  进入路由器管理界面：通过与路由器相连的电脑浏览器进入路由器管理界面，地址http://192.168.1.1  设置静态IP：依次点击“设置向导”-“下一步”-“静态IP”，然后设置与新ip相关的参数，包括IP地址，子网掩码，网关，DNS；  设置MAC地址：依次点击“网络参数”-“MAC地址克隆”，输入新ip的MAC地址；  设置局域网电脑">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
 <meta property="og:title" content="机群ip地址更换后，路由器设置方法">
 <meta property="og:url" content="http://bigorangewjc.github.io/2019/03/12/机群ip地址更换后，路由器设置方法/index.html">
 <meta property="og:site_name" content="BigOrange&#39;s Personal Website">
+<meta property="og:description" content="机群ip地址更换后，路由器设置方法（TP-LINK）  进入路由器管理界面：通过与路由器相连的电脑浏览器进入路由器管理界面，地址http://192.168.1.1  设置静态IP：依次点击“设置向导”-“下一步”-“静态IP”，然后设置与新ip相关的参数，包括IP地址，子网掩码，网关，DNS；  设置MAC地址：依次点击“网络参数”-“MAC地址克隆”，输入新ip的MAC地址；  设置局域网电脑">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-12T10:31:30.715Z">
+<meta property="og:updated_time" content="2019-03-12T14:21:42.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机群ip地址更换后，路由器设置方法">
+<meta name="twitter:description" content="机群ip地址更换后，路由器设置方法（TP-LINK）  进入路由器管理界面：通过与路由器相连的电脑浏览器进入路由器管理界面，地址http://192.168.1.1  设置静态IP：依次点击“设置向导”-“下一步”-“静态IP”，然后设置与新ip相关的参数，包括IP地址，子网掩码，网关，DNS；  设置MAC地址：依次点击“网络参数”-“MAC地址克隆”，输入新ip的MAC地址；  设置局域网电脑">
   
     <link rel="alternate" href="/atom.xml" title="BigOrange&#39;s Personal Website" type="application/atom+xml">
   
@@ -87,13 +91,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>机群ip地址更换后，路由器设置方法（TP-LINK）</p>
+<ol>
+<li><p>进入路由器管理界面：通过与路由器相连的电脑浏览器进入路由器管理界面，地址<a href="http://192.168.1.1" target="_blank" rel="noopener">http://192.168.1.1</a></p>
+</li>
+<li><p>设置静态IP：依次点击“设置向导”-“下一步”-“静态IP”，然后设置与新ip相关的参数，包括IP地址，子网掩码，网关，DNS；</p>
+</li>
+<li><p>设置MAC地址：依次点击“网络参数”-“MAC地址克隆”，输入新ip的MAC地址；</p>
+</li>
+<li><p>设置局域网电脑端口：依次点击“转发规则”-“虚拟服务器”-“添加新条目”：针对老机群，服务端口号为22，内部端口号也为22，<br>ip地址为192.168.1.11，保存；针对新机群，服务端口号为522，内部端口号为22，ip地址为192.168.1.5，保存。<br>至此，已经可以通过新的ip地址访问机群了。</p>
+</li>
+<li><p>补充：为了避免同一局域网的所有电脑都通过新ip走流量，可通过设置MAC地址过滤来指定能够通过路由器连接互联网的电脑，<br>依次点击“安全设置”-“MAC地址过滤”-“添加新条目”，输入允许通过的电脑的MAC地址，并选择“允许通过”，保存；<br>再依次点击“安全设置”-“防火墙设置”-“开启防火墙”-“开启MAC地址过滤”，保存。注意：机群的MAC地址也必须<br>添加到允许的MAC地址中，否则无法登陆机群。</p>
+</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/机群ip地址更换后，路由器设置方法/" data-id="cjt5mzx2z0001ecpvxihr30lz" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/机群ip地址更换后，路由器设置方法/" data-id="cjt5ymtzx00012wpv0feu4g6q" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
     </footer>
   </div>
   
@@ -119,9 +138,23 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
