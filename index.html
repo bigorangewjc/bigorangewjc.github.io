@@ -66,6 +66,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-svn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/svn/" class="article-date">
+  <time datetime="2019-03-14T08:17:11.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/svn/">版本控制器svn的本地多项目管理方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-服务器部署"><a href="#1-服务器部署" class="headerlink" title="1.服务器部署"></a>1.服务器部署</h3><p>（1）安装svn<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install -y subversion</span><br></pre></td></tr></table></figure></p>
+<p>（2）创建SVN多版本库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir $HOME/svn</span><br><span class="line">svnadmin create $HOME/svn/project1</span><br><span class="line">svnadmin create $HOME/svn/project2</span><br></pre></td></tr></table></figure></p>
+<p>在相应目录下的conf文件夹中有如下三个文件：<br>svnserve.conf：  svn服务配置文件下<br>passwd：         用户名密码文件<br>authz：          svn权限配置文件</p>
+<p>（3）配置SVN（为便于配置管理，将所有版本库的“账号密码”和“登陆用户权限”等控制文件指定为同一个配置文件）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp $HOME/svn/project1/conf/passwd $HOME/svn/</span><br><span class="line">cp $HOME/svn/project1/conf/authz $HOME/svn/</span><br></pre></td></tr></table></figure></p>
+<p>修改每个项目版本库的/conf/svnserve.conf(访问控制文件):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi $HOME/svn/project1/conf/svnserve.conf</span><br><span class="line">vi $HOME/svn/project2/conf/svnserve.conf</span><br></pre></td></tr></table></figure></p>
+<p>修改内容如下：<br>默认#anon-access = read | 去掉首字符“#”，read改为none，表示不允许匿名访问<br>默认#auth-access = write | 去掉首字符“#”<br>默认# password-db = passwd | 改为password-db = ../../passwd，指向$HOME/svn/passwd；<br>默认# authz-db = authz | 改为：authz-db = ../../authz，指向$HOME/svn/authz<br>修改后的文件内容如下：<br>anon-access = none<br>auth-access = write<br>password-db = ../../passwd<br>authz-db = ../../authz</p>
+<p>（4）修改$HOME/svn/passwd文件内容：<br>［左为用户名、右为密码］<br>user1 = user1123<br>user2 = user2123</p>
+<p>（5）修改$HOME/svn/authz文件内容：<br>[groups]<br>project1=user1<br>project2=user1,user2<br>%指定所有的版本库默认只读，root可读写<br>[/]</p>
+<ul>
+<li>= r<br>root = rw<br>%user1可读写project1版本库，@的含义可以用指针帮助理解<br>[project1:/]<br>@project1 = rw<br>%user1,user2可读写project2版本库<br>[project2:/]<br>@project2 = rw</li>
+</ul>
+<p>（6）启动服务器$HOME/svn<br>svnserve -d -r $HOME/svn % -d表示后台运行，-r表示服务器的根目录<br>即可启动$HOME/svn/中的所有项目版本库project1，project2</p>
+<p>（7）项目初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn import $HOME/yourFile file://$HOME/svn/project1</span><br></pre></td></tr></table></figure></p>
+<p>将会拷贝目录yourFile到版本库的project1下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn list file://$HOME/svn/project1	%用来查看版本库中的文件</span><br></pre></td></tr></table></figure></p>
+<p>（8）关闭svn<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall svnserve</span><br></pre></td></tr></table></figure></p>
+<p>注意：修改authz和passwd文件后，需要关闭和重启svn服务器</p>
+<h3 id="2-客户端操作"><a href="#2-客户端操作" class="headerlink" title="2.客户端操作"></a>2.客户端操作</h3><p>（1）将文件从版本库取出到本地目录<br>首先进入你想存放取出文件的位置，然后<br>svn checkout svn://192.168.0.100/project1    %接着输入用户名和密码<br>这里的数字代表本地电脑的IP，用ifconfig命令查询，IP后紧跟的仅仅是$HOME/svn目录以下的项目名<br>（这是因为在启动服务器时已经将$HOME/svn设为根目录了）<br>svn checkout svn://192.168.0.100/project1 -r 5     %取出指定版本的文件</p>
+<p>（2）往版本库中添加新的文件，更新版本库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn add xxx.txt     %此命令得在checkout命令执行的目录中才能生效</span><br><span class="line">svn commit   xxx.txt -m &quot;add 123.txt&quot;  #“”中填写备注，只提交123.txt</span><br></pre></td></tr></table></figure></p>
+<p>svn commit -m “LogMessage”       %提交当前目录下的所有文件</p>
+<p>（3）删除文件，更新版本库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn delete xxx.txt</span><br><span class="line">svn ci -m &quot;delete testfile&quot;</span><br></pre></td></tr></table></figure></p>
+<p>（4）更新本地工作副本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn update -r 200 xxx.txt 	%将本地的文件xxx.txt还原到版本200</span><br><span class="line">svn update	%如果后面没有目录，默认将当前目录以及子目录下的所有文件都更新到最新版本</span><br></pre></td></tr></table></figure></p>
+<p>（5）查看文件修改记录，及其版本号的变化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn log xxx.txt</span><br></pre></td></tr></table></figure></p>
+<p>（6）查看文件详细信息（路径、版本、时间、提交者等信息）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn info xxx.txt</span><br></pre></td></tr></table></figure></p>
+<p>（7）比较版本间的差异<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn diff -r 2:102 xxx.txt 	%对版本2和版本102比较差异</span><br></pre></td></tr></table></figure></p>
+<p>（8）版本库下的文件和目录列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn list file://$HOME/svn/project1</span><br></pre></td></tr></table></figure></p>
+<p>（9）创建新目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn mkdir myDirectory</span><br><span class="line">svn commit -m &quot;Add myDirectory&quot;</span><br></pre></td></tr></table></figure></p>
+<p>（10）移动文件至其他目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mv 001.txt ../ADirectory</span><br><span class="line">svn add ../ADirectory/001.txt</span><br><span class="line">svn delete 001.txt</span><br><span class="line">svn commit -m &quot;Move 001.txt to ADirectory&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-将svn服务器置于-opt目录下的注意事项"><a href="#3-将svn服务器置于-opt目录下的注意事项" class="headerlink" title="3. 将svn服务器置于/opt目录下的注意事项"></a>3. 将svn服务器置于/opt目录下的注意事项</h3><p>（1）必须以超级用户的身份（su或sudo）开启服务器<br>（2）普通用户身份可以提交新版本</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/svn/" data-id="cjt8dg7z1000m3wpvvf8tdlv2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVN/">SVN</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-latex-flowchart" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/14/latex-flowchart/" class="article-date">
@@ -93,7 +163,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="1-安装dia编辑器和inkscape"><a href="#1-安装dia编辑器和inkscape" class="headerlink" title="1. 安装dia编辑器和inkscape"></a>1. 安装dia编辑器和inkscape</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install dia</span><br><span class="line">sudo dnf install inkscape</span><br></pre></td></tr></table></figure>
-<h3 id="2-inkscape中使用LaTeX命令写数学公式，需要以下安装以下两个插件"><a href="#2-inkscape中使用LaTeX命令写数学公式，需要以下安装以下两个插件" class="headerlink" title="2. inkscape中使用LaTeX命令写数学公式，需要以下安装以下两个插件:"></a>2. inkscape中使用LaTeX命令写数学公式，需要以下安装以下两个插件:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install ghostscript</span><br><span class="line">sudo dnf install pstoedit</span><br></pre></td></tr></table></figure>
+<h3 id="2-inkscape中使用LaTeX命令写数学公式，需要安装以下两个插件"><a href="#2-inkscape中使用LaTeX命令写数学公式，需要安装以下两个插件" class="headerlink" title="2. inkscape中使用LaTeX命令写数学公式，需要安装以下两个插件:"></a>2. inkscape中使用LaTeX命令写数学公式，需要安装以下两个插件:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install ghostscript</span><br><span class="line">sudo dnf install pstoedit</span><br></pre></td></tr></table></figure>
 <h3 id="3-dia与inkscape混合使用方法"><a href="#3-dia与inkscape混合使用方法" class="headerlink" title="3. dia与inkscape混合使用方法"></a>3. dia与inkscape混合使用方法</h3><ul>
 <li>在dia中画流程图，保存为.dia格式</li>
 <li>用inkscape打开xxx.dia文件</li>
@@ -106,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/latex-flowchart/" data-id="cjt8d0m3x000bqfpv70dntzpy" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/latex-flowchart/" data-id="cjt8dg7yp000a3wpv7ih82sby" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FlowChart/">FlowChart</a></li></ul>
@@ -165,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/pdf-manipulation/" data-id="cjt8d0m4l000xqfpvgsfky9uh" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/pdf-manipulation/" data-id="cjt8dg7yv000g3wpv09kg2wq9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PDF/">PDF</a></li></ul>
@@ -212,7 +282,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/gnome-theme-setup/" data-id="cjt8d0m3p0005qfpvf4fvgc1u" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/gnome-theme-setup/" data-id="cjt8dg7yj00053wpvmpxn5ta5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gnome/">Gnome</a></li></ul>
@@ -262,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjt8d0m3j0001qfpvjsuwhtxt" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjt8dg7yb00013wpvix1040pr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
@@ -307,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjt8d0m3o0004qfpv8senagbt" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjt8dg7yh00043wpvd33fdmp1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
@@ -351,7 +421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjt8d0m3d0000qfpvivvxs583" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjt8dg7y400003wpvq3z4x1ti" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
@@ -395,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjt8d0m3v000aqfpve17jnfd0" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjt8dg7ys000b3wpvqk2yul0f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Okular/">Okular</a></li></ul>
@@ -442,7 +512,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjt8d0m3z000gqfpvknr1d6us" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjt8dg7yx000i3wpv62uk7osl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li></ul>
@@ -489,7 +559,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjt8d0m3r0006qfpvulur11kv" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjt8dg7yl00063wpvc11jwueg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -519,7 +589,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
     </div>
   </div>
 
@@ -529,7 +599,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a>
+      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a>
     </div>
   </div>
 
@@ -551,6 +621,10 @@
       <ul>
         
           <li>
+            <a href="/2019/03/14/svn/">版本控制器svn的本地多项目管理方法</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/14/latex-flowchart/">制作含LaTeX公式的流程图</a>
           </li>
         
@@ -564,10 +638,6 @@
         
           <li>
             <a href="/2019/03/14/adobe-reader-install/">安装Adobe Reader</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/14/eps2jpg/">eps 转 jpg</a>
           </li>
         
       </ul>
