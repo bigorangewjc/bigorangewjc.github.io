@@ -66,6 +66,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-eps2jpg" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/eps2jpg/" class="article-date">
+  <time datetime="2019-03-14T07:06:29.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/eps2jpg/">eps 转 jpg</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>安装ImageMagick、GhostScript</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install ImageMagick ghostscript</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>转换一张eps为jpg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convert -density 200 input.eps output.jpg</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>批量转换当前目录中所有eps为jpg</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -1 *.eps | xargs -n 1 bash -c &apos;convert -density 200 &quot;$0&quot; &quot;$&#123;0%.eps&#125;.jpg&quot;&apos;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjt8asfkk0001iipvuiwchxxb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-adobe-flash-player" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/14/adobe-flash-player/" class="article-date">
@@ -104,10 +157,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjt8afb2m000062pvwev9xwxb" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjt8asfkd0000iipvj0ltyenb" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flash/">Flash</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
 
     </footer>
   </div>
@@ -152,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjt8afb2z000462pvwmhjconc" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjt8asfkp0004iipvjot6m1p3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Okular/">Okular</a></li></ul>
@@ -207,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjt8afb31000562pvfcfyh6n3" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjt8asfkt0006iipvaoa6nhd7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li></ul>
@@ -254,7 +307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjt8afb2t000162pvawru9ylp" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjt8asfkr0005iipvwqezdyfj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -284,7 +337,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flash/">Flash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
     </div>
   </div>
 
@@ -294,7 +347,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Flash/" style="font-size: 10px;">Flash</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a>
+      <a href="/tags/Adobe/" style="font-size: 10px;">Adobe</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a>
     </div>
   </div>
 
@@ -314,6 +367,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/03/14/eps2jpg/">eps 转 jpg</a>
+          </li>
         
           <li>
             <a href="/2019/03/14/adobe-flash-player/">adobe flash player 软件源</a>
