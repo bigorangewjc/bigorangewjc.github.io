@@ -92,7 +92,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h6 id="1-安装gnome-tweak-tool"><a href="#1-安装gnome-tweak-tool" class="headerlink" title="1.安装gnome-tweak-tool"></a>1.安装gnome-tweak-tool</h6><p>sudo dnf install gnome-tweak-tool<br>2.下载主题和图标<br>（1）在网站<a href="https://www.gnome-look.org/上下载喜欢的主题（themes）和图标（icons）" target="_blank" rel="noopener">https://www.gnome-look.org/上下载喜欢的主题（themes）和图标（icons）</a><br>（2）将主题文件解压到/usr/share/themes，图标文件解压到/usr/share/icons<br>（3）打开gnome-tweak-tool，进入“外观”，‘GTK+’对应主题文件，‘图标’对应图标文件，Shell主题暂时无法选择，在进行下面的第3步后就可以选择了<br>3.安装Dock扩展<br>git clone <a href="https://github.com/micheleg/dash-to-dock.git" target="_blank" rel="noopener">https://github.com/micheleg/dash-to-dock.git</a><br>make<br>make install<br>重启<br>进入“扩展”，点击“Dash to dock”和“User themes”<br>进入“外观”，在“Shell主题”中选择下载的主题<br>4.配置Dock<br>进入“扩展”–“Dash to dock”的设置栏进行个性化设置</p>
+        <h3 id="1-安装gnome-tweak-tool"><a href="#1-安装gnome-tweak-tool" class="headerlink" title="1.安装gnome-tweak-tool"></a>1.安装gnome-tweak-tool</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install gnome-tweak-tool</span><br></pre></td></tr></table></figure>
+<h3 id="2-下载主题和图标"><a href="#2-下载主题和图标" class="headerlink" title="2.下载主题和图标"></a>2.下载主题和图标</h3><p>（1）在网站<a href="https://www.gnome-look.org/上下载喜欢的主题（themes）和图标（icons）" target="_blank" rel="noopener">https://www.gnome-look.org/上下载喜欢的主题（themes）和图标（icons）</a><br>（2）将主题文件解压到/usr/share/themes，图标文件解压到/usr/share/icons<br>（3）打开gnome-tweak-tool，进入“外观”，‘GTK+’对应主题文件，‘图标’对应图标文件，Shell主题暂时无法选择，在进行下面的第3步后就可以选择了</p>
+<h3 id="3-安装Dock扩展"><a href="#3-安装Dock扩展" class="headerlink" title="3.安装Dock扩展"></a>3.安装Dock扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/micheleg/dash-to-dock.git</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>重启<br>进入“扩展”，点击“Dash to dock”和“User themes”<br>进入“外观”，在“Shell主题”中选择下载的主题</p>
+<h3 id="4-配置Dock"><a href="#4-配置Dock" class="headerlink" title="4.配置Dock"></a>4.配置Dock</h3><p>进入“扩展”–“Dash to dock”的设置栏进行个性化设置</p>
 
       
     </div>
@@ -328,7 +332,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/router_setup/">机群ip地址更换后，路由器设置方法</a>
+      <a class="article-title" href="/2019/03/12/router_setup/">机群ip地址更换后，路由器设置方法（TP-LINK）</a>
     </h1>
   
 
@@ -336,19 +340,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>机群ip地址更换后，路由器设置方法（TP-LINK）</p>
-<ol>
-<li><p>进入路由器管理界面：通过与路由器相连的电脑浏览器进入路由器管理界面，地址<a href="http://192.168.1.1" target="_blank" rel="noopener">http://192.168.1.1</a></p>
-</li>
-<li><p>设置静态IP：依次点击“设置向导”-“下一步”-“静态IP”，然后设置与新ip相关的参数，包括IP地址，子网掩码，网关，DNS；</p>
-</li>
-<li><p>设置MAC地址：依次点击“网络参数”-“MAC地址克隆”，输入新ip的MAC地址；</p>
-</li>
-<li><p>设置局域网电脑端口：依次点击“转发规则”-“虚拟服务器”-“添加新条目”：针对老机群，服务端口号为22，内部端口号也为22，<br>ip地址为192.168.1.11，保存；针对新机群，服务端口号为522，内部端口号为22，ip地址为192.168.1.5，保存。<br>至此，已经可以通过新的ip地址访问机群了。</p>
-</li>
-<li><p>补充：为了避免同一局域网的所有电脑都通过新ip走流量，可通过设置MAC地址过滤来指定能够通过路由器连接互联网的电脑，<br>依次点击“安全设置”-“MAC地址过滤”-“添加新条目”，输入允许通过的电脑的MAC地址，并选择“允许通过”，保存；<br>再依次点击“安全设置”-“防火墙设置”-“开启防火墙”-“开启MAC地址过滤”，保存。注意：机群的MAC地址也必须<br>添加到允许的MAC地址中，否则无法登陆机群。</p>
-</li>
-</ol>
+        <h3 id="1-进入路由器管理界面："><a href="#1-进入路由器管理界面：" class="headerlink" title="1. 进入路由器管理界面："></a>1. 进入路由器管理界面：</h3><p>通过与路由器相连的电脑浏览器进入路由器管理界面，地址<a href="http://192.168.1.1" target="_blank" rel="noopener">http://192.168.1.1</a></p>
+<h3 id="2-设置静态IP："><a href="#2-设置静态IP：" class="headerlink" title="2. 设置静态IP："></a>2. 设置静态IP：</h3><p>依次点击“设置向导”-“下一步”-“静态IP”，然后设置与新ip相关的参数，包括IP地址，子网掩码，网关，DNS；</p>
+<h3 id="3-设置MAC地址："><a href="#3-设置MAC地址：" class="headerlink" title="3. 设置MAC地址："></a>3. 设置MAC地址：</h3><p>依次点击“网络参数”-“MAC地址克隆”，输入新ip的MAC地址；</p>
+<h3 id="4-设置局域网电脑端口："><a href="#4-设置局域网电脑端口：" class="headerlink" title="4. 设置局域网电脑端口："></a>4. 设置局域网电脑端口：</h3><p>依次点击“转发规则”-“虚拟服务器”-“添加新条目”：针对老机群，服务端口号为22，内部端口号也为22，<br>ip地址为192.168.1.11，保存；针对新机群，服务端口号为522，内部端口号为22，ip地址为192.168.1.5，保存。<br>至此，已经可以通过新的ip地址访问机群了。</p>
+<h3 id="5-补充："><a href="#5-补充：" class="headerlink" title="5. 补充："></a>5. 补充：</h3><p>为了避免同一局域网的所有电脑都通过新ip走流量，可通过设置MAC地址过滤来指定能够通过路由器连接互联网的电脑，<br>依次点击“安全设置”-“MAC地址过滤”-“添加新条目”，输入允许通过的电脑的MAC地址，并选择“允许通过”，保存；<br>再依次点击“安全设置”-“防火墙设置”-“开启防火墙”-“开启MAC地址过滤”，保存。注意：机群的MAC地址也必须<br>添加到允许的MAC地址中，否则无法登陆机群。</p>
 
       
     </div>
