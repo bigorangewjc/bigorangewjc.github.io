@@ -66,6 +66,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-latex-flowchart" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/latex-flowchart/" class="article-date">
+  <time datetime="2019-03-14T08:07:55.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/LaTeX/">LaTeX</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/latex-flowchart/">制作含LaTeX公式的流程图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装dia编辑器和inkscape"><a href="#1-安装dia编辑器和inkscape" class="headerlink" title="1. 安装dia编辑器和inkscape"></a>1. 安装dia编辑器和inkscape</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install dia</span><br><span class="line">sudo dnf install inkscape</span><br></pre></td></tr></table></figure>
+<h3 id="2-inkscape中使用LaTeX命令写数学公式，需要以下安装以下两个插件"><a href="#2-inkscape中使用LaTeX命令写数学公式，需要以下安装以下两个插件" class="headerlink" title="2. inkscape中使用LaTeX命令写数学公式，需要以下安装以下两个插件:"></a>2. inkscape中使用LaTeX命令写数学公式，需要以下安装以下两个插件:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install ghostscript</span><br><span class="line">sudo dnf install pstoedit</span><br></pre></td></tr></table></figure>
+<h3 id="3-dia与inkscape混合使用方法"><a href="#3-dia与inkscape混合使用方法" class="headerlink" title="3. dia与inkscape混合使用方法"></a>3. dia与inkscape混合使用方法</h3><ul>
+<li>在dia中画流程图，保存为.dia格式</li>
+<li>用inkscape打开xxx.dia文件</li>
+<li>依次点击“扩展” – “渲染” – “LaTeX”</li>
+<li>在对话框中的第一行输入$\mu &gt; \mu_{max}?$，再点击“应用”，就会出现编译后的LaTeX字体（出现的位置一般在右下方），</li>
+<li>此字体可以理解为一个图片，可以拖动、放大与缩小，可将其拖动到流程图中</li>
+<li>将编辑好后的流程图保存为.svg格式，便于以后的修改<h3 id="4-eps图片的导出"><a href="#4-eps图片的导出" class="headerlink" title="4. eps图片的导出"></a>4. eps图片的导出</h3>（1）dia：点击“文件”–“导出”，选择eps格式（Pango）<br>（2）inkscape：点击“文件”–“保存副本”，选择eps格式</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/latex-flowchart/" data-id="cjt8d0m3x000bqfpv70dntzpy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FlowChart/">FlowChart</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-pdf-manipulation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/14/pdf-manipulation/" class="article-date">
@@ -98,19 +150,22 @@
 <h3 id="2-编辑软件pdfedit"><a href="#2-编辑软件pdfedit" class="headerlink" title="2.编辑软件pdfedit"></a>2.编辑软件pdfedit</h3><p>安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install pdfedit</span><br></pre></td></tr></table></figure></p>
 <p>使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pdfedit	%打开图形界面，具体功能很多，尚未仔细研究</span><br></pre></td></tr></table></figure></p>
 <h3 id="3-改变pdf尺寸的软件gimp"><a href="#3-改变pdf尺寸的软件gimp" class="headerlink" title="3.改变pdf尺寸的软件gimp"></a>3.改变pdf尺寸的软件gimp</h3><ul>
-<li><p>安装：</p>
+<li>安装：</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install gimp</span><br></pre></td></tr></table></figure>
-</li>
+<ul>
 <li><p>点击“文件”–“打开”导入文件，导入时需要输入尺寸，该尺寸的大小决定图片的分辨率，尽量符合原图片的大小</p>
 </li>
-<li>点击“图像”–“打印大小”，输入目标尺寸</li>
-<li>点击“文件”–“overwrite xxx.pdf”来更新pdf文件</li>
+<li><p>点击“图像”–“打印大小”，输入目标尺寸</p>
+</li>
+<li><p>点击“文件”–“overwrite xxx.pdf”来更新pdf文件</p>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/pdf-manipulation/" data-id="cjt8cogds0000f2pv60ciers4" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/pdf-manipulation/" data-id="cjt8d0m4l000xqfpvgsfky9uh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PDF/">PDF</a></li></ul>
@@ -157,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/gnome-theme-setup/" data-id="cjt8cncai0005dxpvpyqkdpoc" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/gnome-theme-setup/" data-id="cjt8d0m3p0005qfpvf4fvgc1u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gnome/">Gnome</a></li></ul>
@@ -207,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjt8cnca90001dxpvqx9ubqpz" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjt8d0m3j0001qfpvjsuwhtxt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
@@ -252,7 +307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjt8cncaf0004dxpviun25kd0" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjt8d0m3o0004qfpv8senagbt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
@@ -296,7 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjt8cnc9z0000dxpv1lssl3ko" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjt8d0m3d0000qfpvivvxs583" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
@@ -340,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjt8cncao000adxpvzgoxtb1c" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjt8d0m3v000aqfpve17jnfd0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Okular/">Okular</a></li></ul>
@@ -387,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjt8cncar000bdxpvli9uubfq" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjt8d0m3z000gqfpvknr1d6us" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li></ul>
@@ -434,7 +489,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjt8cncak0006dxpvs113lnzx" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjt8d0m3r0006qfpvulur11kv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -454,7 +509,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li></ul>
     </div>
   </div>
 
@@ -464,7 +519,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
     </div>
   </div>
 
@@ -474,7 +529,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a>
+      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a>
     </div>
   </div>
 
@@ -496,6 +551,10 @@
       <ul>
         
           <li>
+            <a href="/2019/03/14/latex-flowchart/">制作含LaTeX公式的流程图</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/14/pdf-manipulation/">pdf的合并、编辑、改变尺寸</a>
           </li>
         
@@ -509,10 +568,6 @@
         
           <li>
             <a href="/2019/03/14/eps2jpg/">eps 转 jpg</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/14/adobe-flash-player/">adobe flash player 软件源</a>
           </li>
         
       </ul>
