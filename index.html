@@ -98,7 +98,7 @@
 <p>（3）配置SVN（为便于配置管理，将所有版本库的“账号密码”和“登陆用户权限”等控制文件指定为同一个配置文件）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp $HOME/svn/project1/conf/passwd $HOME/svn/</span><br><span class="line">cp $HOME/svn/project1/conf/authz $HOME/svn/</span><br></pre></td></tr></table></figure></p>
 <p>修改每个项目版本库的/conf/svnserve.conf(访问控制文件):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi $HOME/svn/project1/conf/svnserve.conf</span><br><span class="line">vi $HOME/svn/project2/conf/svnserve.conf</span><br></pre></td></tr></table></figure></p>
 <p>修改内容如下：<br>默认#anon-access = read | 去掉首字符“#”，read改为none，表示不允许匿名访问<br>默认#auth-access = write | 去掉首字符“#”<br>默认# password-db = passwd | 改为password-db = ../../passwd，指向$HOME/svn/passwd；<br>默认# authz-db = authz | 改为：authz-db = ../../authz，指向$HOME/svn/authz<br>修改后的文件内容如下：<br>anon-access = none<br>auth-access = write<br>password-db = ../../passwd<br>authz-db = ../../authz</p>
-<p>（4）修改’$HOME/svn/passwd’文件内容：<br>［左为用户名、右为密码］<br>user1 = user1123<br>user2 = user2123</p>
+<p>（4）修改<code>$HOME/svn/passwd</code>文件内容：<br>［左为用户名、右为密码］<br>user1 = user1123<br>user2 = user2123</p>
 <p>（5）修改$HOME/svn/authz文件内容：<br>[groups]<br>project1=user1<br>project2=user1,user2<br>%指定所有的版本库默认只读，root可读写<br>[/]</p>
 <ul>
 <li>= r<br>root = rw<br>%user1可读写project1版本库，@的含义可以用指针帮助理解<br>[project1:/]<br>@project1 = rw<br>%user1,user2可读写project2版本库<br>[project2:/]<br>@project2 = rw</li>
