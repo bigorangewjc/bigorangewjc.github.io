@@ -5,19 +5,15 @@
   
 
   
-  <title>Hello World | BigOrange&#39;s Personal Website</title>
+  <title>BigOrange&#39;s Personal Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://bigorangewjc.github.io/2019/03/12/hello-world/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="BigOrange&#39;s Personal Website">
+<meta property="og:url" content="http://bigorangewjc.github.io/page/2/index.html">
 <meta property="og:site_name" content="BigOrange&#39;s Personal Website">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-12T03:27:02.637Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="BigOrange&#39;s Personal Website">
   
     <link rel="alternate" href="/atom.xml" title="BigOrange&#39;s Personal Website" type="application/atom+xml">
   
@@ -68,7 +64,56 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-router_setup" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/12/router_setup/" class="article-date">
+  <time datetime="2019-03-12T10:31:30.000Z" itemprop="datePublished">2019-03-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/12/router_setup/">机群ip地址更换后，路由器设置方法（TP-LINK）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-进入路由器管理界面："><a href="#1-进入路由器管理界面：" class="headerlink" title="1. 进入路由器管理界面："></a>1. 进入路由器管理界面：</h3><p>通过与路由器相连的电脑浏览器进入路由器管理界面，地址<a href="http://192.168.1.1" target="_blank" rel="noopener">http://192.168.1.1</a></p>
+<h3 id="2-设置静态IP："><a href="#2-设置静态IP：" class="headerlink" title="2. 设置静态IP："></a>2. 设置静态IP：</h3><p>依次点击“设置向导”-“下一步”-“静态IP”，然后设置与新ip相关的参数，包括IP地址，子网掩码，网关，DNS；</p>
+<h3 id="3-设置MAC地址："><a href="#3-设置MAC地址：" class="headerlink" title="3. 设置MAC地址："></a>3. 设置MAC地址：</h3><p>依次点击“网络参数”-“MAC地址克隆”，输入新ip的MAC地址；</p>
+<h3 id="4-设置局域网电脑端口："><a href="#4-设置局域网电脑端口：" class="headerlink" title="4. 设置局域网电脑端口："></a>4. 设置局域网电脑端口：</h3><p>依次点击“转发规则”-“虚拟服务器”-“添加新条目”：针对老机群，服务端口号为22，内部端口号也为22，<br>ip地址为192.168.1.11，保存；针对新机群，服务端口号为522，内部端口号为22，ip地址为192.168.1.5，保存。<br>至此，已经可以通过新的ip地址访问机群了。</p>
+<h3 id="5-补充："><a href="#5-补充：" class="headerlink" title="5. 补充："></a>5. 补充：</h3><p>为了避免同一局域网的所有电脑都通过新ip走流量，可通过设置MAC地址过滤来指定能够通过路由器连接互联网的电脑，<br>依次点击“安全设置”-“MAC地址过滤”-“添加新条目”，输入允许通过的电脑的MAC地址，并选择“允许通过”，保存；<br>再依次点击“安全设置”-“防火墙设置”-“开启防火墙”-“开启MAC地址过滤”，保存。注意：机群的MAC地址也必须<br>添加到允许的MAC地址中，否则无法登陆机群。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjt8ji5mb000mo1pvomcpxzu6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/12/hello-world/" class="article-date">
   <time datetime="2019-03-12T03:27:02.637Z" itemprop="datePublished">2019-03-12</time>
@@ -81,8 +126,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Hello World
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/12/hello-world/">Hello World</a>
     </h1>
   
 
@@ -109,23 +154,16 @@
     </footer>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2019/03/12/router_setup/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          机群ip地址更换后，路由器设置方法（TP-LINK）
-        
-      </div>
-    </a>
-  
-  
-</nav>
+</article>
+
 
   
-</article>
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </section>
         
