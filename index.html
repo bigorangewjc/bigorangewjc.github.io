@@ -66,6 +66,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-gnome-theme-setup" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/gnome-theme-setup/" class="article-date">
+  <time datetime="2019-03-14T07:48:30.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/gnome-theme-setup/">修改gnome主题、图标、Shell</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.安装gnome-tweak-tool<br>sudo dnf install gnome-tweak-tool<br>2.下载主题和图标<br>（1）在网站<a href="https://www.gnome-look.org/上下载喜欢的主题（themes）和图标（icons）" target="_blank" rel="noopener">https://www.gnome-look.org/上下载喜欢的主题（themes）和图标（icons）</a><br>（2）将主题文件解压到/usr/share/themes，图标文件解压到/usr/share/icons<br>（3）打开gnome-tweak-tool，进入“外观”，‘GTK+’对应主题文件，‘图标’对应图标文件，Shell主题暂时无法选择，在进行下面的第3步后就可以选择了<br>3.安装Dock扩展<br>git clone <a href="https://github.com/micheleg/dash-to-dock.git" target="_blank" rel="noopener">https://github.com/micheleg/dash-to-dock.git</a><br>make<br>make install<br>重启<br>进入“扩展”，点击“Dash to dock”和“User themes”<br>进入“外观”，在“Shell主题”中选择下载的主题<br>4.配置Dock<br>进入“扩展”–“Dash to dock”的设置栏进行个性化设置</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/gnome-theme-setup/" data-id="cjt8c2wmu0005dzpv6h7ej54b" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gnome/">Gnome</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-adobe-reader-install" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/14/adobe-reader-install/" class="article-date">
@@ -92,19 +135,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>######1.下载安装包 AdbeRdr9.5.5-1_i486linux_enu.tar.bz2<br>网址：<a href="ftp://ftp.adobe.com/pub/adobe/reader/unix/9.x/9.5.5/enu/" target="_blank" rel="noopener">ftp://ftp.adobe.com/pub/adobe/reader/unix/9.x/9.5.5/enu/</a></p>
-<p>######2.解压：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -jxvf AdbeRdr9.5.5-1_i486linux_enu.tar.bz2</span><br></pre></td></tr></table></figure></p>
-<p>######3.进入解压后的目录，安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd AdobeReader</span><br><span class="line">./INSTALL</span><br></pre></td></tr></table></figure></p>
+        <h6 id="1-下载安装包-AdbeRdr9-5-5-1-i486linux-enu-tar-bz2"><a href="#1-下载安装包-AdbeRdr9-5-5-1-i486linux-enu-tar-bz2" class="headerlink" title="1.下载安装包 AdbeRdr9.5.5-1_i486linux_enu.tar.bz2"></a>1.下载安装包 AdbeRdr9.5.5-1_i486linux_enu.tar.bz2</h6><p>网址：<a href="ftp://ftp.adobe.com/pub/adobe/reader/unix/9.x/9.5.5/enu/" target="_blank" rel="noopener">ftp://ftp.adobe.com/pub/adobe/reader/unix/9.x/9.5.5/enu/</a></p>
+<h6 id="2-解压："><a href="#2-解压：" class="headerlink" title="2.解压："></a>2.解压：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -jxvf AdbeRdr9.5.5-1_i486linux_enu.tar.bz2</span><br></pre></td></tr></table></figure>
+<h6 id="3-进入解压后的目录，安装："><a href="#3-进入解压后的目录，安装：" class="headerlink" title="3.进入解压后的目录，安装："></a>3.进入解压后的目录，安装：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd AdobeReader</span><br><span class="line">./INSTALL</span><br></pre></td></tr></table></figure>
 <p>（过程中会询问安装路径）</p>
-<p>######4.安装所需插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install libxml2.so.2</span><br><span class="line">sudo dnf install libgdk_pixbuf_xlib-2.0.so.0</span><br><span class="line">sudo dnf install libgtk-x11-2.0.so.0</span><br></pre></td></tr></table></figure></p>
-<p>######5.设置环境变量（bash）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br><span class="line">export PATH=$HOME/Adobe/Reader9/bin:$PATH</span><br></pre></td></tr></table></figure></p>
+<h6 id="4-安装所需插件"><a href="#4-安装所需插件" class="headerlink" title="4.安装所需插件"></a>4.安装所需插件</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install libxml2.so.2</span><br><span class="line">sudo dnf install libgdk_pixbuf_xlib-2.0.so.0</span><br><span class="line">sudo dnf install libgtk-x11-2.0.so.0</span><br></pre></td></tr></table></figure>
+<h6 id="5-设置环境变量（bash）"><a href="#5-设置环境变量（bash）" class="headerlink" title="5.设置环境变量（bash）"></a>5.设置环境变量（bash）</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br><span class="line">export PATH=$HOME/Adobe/Reader9/bin:$PATH</span><br></pre></td></tr></table></figure>
 <p>（请根据第3步的安装路径设置环境变量PATH）</p>
-<p>######6.运行Adobe Reader<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acroread</span><br></pre></td></tr></table></figure></p>
+<h6 id="6-运行Adobe-Reader"><a href="#6-运行Adobe-Reader" class="headerlink" title="6.运行Adobe Reader"></a>6.运行Adobe Reader</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acroread</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjt8ayna40001nlpv9ep5iumb" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjt8c2wmm0001dzpvvp32v8vm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
@@ -157,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjt8aynaa0004nlpvr6pfskzd" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjt8c2wms0004dzpv0dhfcou5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
@@ -207,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjt8ayn9v0000nlpvcj1jwc6k" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjt8c2wme0000dzpvbnb8lh1a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
@@ -255,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjt8aynae0006nlpvzakgpb7x" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjt8c2wn2000bdzpvr09wum2s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Okular/">Okular</a></li></ul>
@@ -310,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjt8aynai000anlpv0h03a9ih" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjt8c2wn0000adzpv9e67vz55" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li></ul>
@@ -357,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjt8aynac0005nlpv0boujgmc" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjt8c2wmw0006dzpvmi66zmve" class="article-share-link">Share</a>
       
       
     </footer>
@@ -387,7 +430,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
     </div>
   </div>
 
@@ -397,7 +440,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a>
+      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a>
     </div>
   </div>
 
@@ -419,6 +462,10 @@
       <ul>
         
           <li>
+            <a href="/2019/03/14/gnome-theme-setup/">修改gnome主题、图标、Shell</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/14/adobe-reader-install/">安装Adobe Reader</a>
           </li>
         
@@ -432,10 +479,6 @@
         
           <li>
             <a href="/2019/03/14/okular-video/">okular动画播放问题</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/12/router_setup/">机群ip地址更换后，路由器设置方法</a>
           </li>
         
       </ul>
