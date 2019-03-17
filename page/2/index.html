@@ -66,6 +66,315 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ip-setup" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/17/ip-setup/" class="article-date">
+  <time datetime="2019-03-17T06:51:34.000Z" itemprop="datePublished">2019-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/17/ip-setup/">修改本地ip、网关、子网掩码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-打开网卡配置文件"><a href="#1-打开网卡配置文件" class="headerlink" title="1. 打开网卡配置文件"></a>1. 打开网卡配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth1</span><br></pre></td></tr></table></figure>
+<h4 id="修改或添加："><a href="#修改或添加：" class="headerlink" title="修改或添加："></a>修改或添加：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BOOTPROTO=none %联网方式，none代表指定ip，dhcp代表自动分配ip</span><br><span class="line">ONBOOT=yes     %网卡启动开关</span><br><span class="line">GATEWAY=192.168.1.1</span><br><span class="line">NETMASK=255.255.255.0</span><br><span class="line">IPADDR=192.168.1.14</span><br></pre></td></tr></table></figure>
+<h3 id="2-重启网络服务"><a href="#2-重启网络服务" class="headerlink" title="2. 重启网络服务"></a>2. 重启网络服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/17/ip-setup/" data-id="cjtckarks000hgnpv1zv7fzrl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IP/">IP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-texlive-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/17/texlive-install/" class="article-date">
+  <time datetime="2019-03-17T05:40:09.000Z" itemprop="datePublished">2019-03-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/17/texlive-install/">安装texlive2016镜像</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装镜像"><a href="#1-安装镜像" class="headerlink" title="1.安装镜像"></a>1.安装镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o loop texlive2016.iso /mnt</span><br><span class="line">cd /mnt</span><br><span class="line">sudo ./install-tl -gui %出现图形界面，&quot;安装方案&quot;选择&quot;scheme-full&quot;，</span><br><span class="line">                       %&quot;目录设置&quot;可以使用默认路径，也可以根据个人需要进行修改，</span><br><span class="line">                       %设置完毕后，点击&quot;安装TexLive&quot;，安装大约耗时15分钟</span><br></pre></td></tr></table></figure>
+<p><img src="texlive.png" alt="texlive.png"></p>
+<p>如图，其中要说明的有以下几点:</p>
+<ul>
+<li>“安装方案”选择”scheme-full”，</li>
+<li>“目录设置”可以使用默认路径，也可以根据个人需要进行修改，</li>
+<li>设置完毕后，点击”安装TexLive”，安装大约耗时15分钟几点：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt</span><br></pre></td></tr></table></figure>
+<h3 id="2-设置环境变量-bash与csh的环境变量语法不一样-下面分别进行说明"><a href="#2-设置环境变量-bash与csh的环境变量语法不一样-下面分别进行说明" class="headerlink" title="2.设置环境变量(bash与csh的环境变量语法不一样,下面分别进行说明)"></a>2.设置环境变量(bash与csh的环境变量语法不一样,下面分别进行说明)</h3><h4 id="（1）BASH"><a href="#（1）BASH" class="headerlink" title="（1）BASH:"></a>（1）BASH:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>输入以下语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># TeX Live 2016</span><br><span class="line">export MANPATH=/usr/local/texlive/2016/texmf-dist/doc/man:$&#123;MANPATH&#125;</span><br><span class="line">export INFOPATH=/usr/local/texlive/2016/texmf-dist/doc/info:$&#123;INFOPATH&#125;</span><br><span class="line">export PATH=/usr/local/texlive/2016/bin/x86_64-linux:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存关闭<code>~/.bashrc</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h4 id="（2）CSH"><a href="#（2）CSH" class="headerlink" title="（2）CSH:"></a>（2）CSH:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.cshrc</span><br></pre></td></tr></table></figure>
+<p>输入以下语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># TeX Live 2016</span><br><span class="line">setenv PATH /usr/local/texlive/2016/bin/x86_64-linux:$PATH</span><br><span class="line">setenv MANPATH /usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH</span><br></pre></td></tr></table></figure></p>
+<p>保存关闭<code>~/.cshrc</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.cshrc</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-检验是否安装成功"><a href="#3-检验是否安装成功" class="headerlink" title="3.检验是否安装成功"></a>3.检验是否安装成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xelatex --version %如果出现的是2016版本，则表示安装成功</span><br></pre></td></tr></table></figure>
+<h3 id="4-更新字体"><a href="#4-更新字体" class="headerlink" title="4.更新字体"></a>4.更新字体</h3><h4 id="（1）将下载的字体解压到-usr-share-fonts目录下"><a href="#（1）将下载的字体解压到-usr-share-fonts目录下" class="headerlink" title="（1）将下载的字体解压到/usr/share/fonts目录下"></a>（1）将下载的字体解压到<code>/usr/share/fonts</code>目录下</h4><h4 id="（2）更新字库"><a href="#（2）更新字库" class="headerlink" title="（2）更新字库"></a>（2）更新字库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fc-cache -fv</span><br></pre></td></tr></table></figure>
+<p>PS:如果还有不清楚的地方，可以参考下面这篇博客<br><a href="https://www.cnblogs.com/wenbosheng/archive/2016/08/03/5725834.html" target="_blank" rel="noopener">https://www.cnblogs.com/wenbosheng/archive/2016/08/03/5725834.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/17/texlive-install/" data-id="cjtcjyy7l000egnpvtvay65mp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/texlive/">texlive</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-guake" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/guake/" class="article-date">
+  <time datetime="2019-03-14T11:17:09.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/guake/">guake（下拉式终端）在gnome中无法唤醒的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>依次进入gnome的“设置”-“键盘”，下拉到底，点击“+”，在对话框里首先点击“Shortcut”，设置快捷按键，然后输入“名称”和“命令”，二者都是“guake”，最后点击“添加”即可。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/guake/" data-id="cjt8ji5lp0006o1pv2a0douq4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Guake/">Guake</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-terminator" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/terminator/" class="article-date">
+  <time datetime="2019-03-14T11:06:53.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/terminator/">terminator（可分割式终端）快捷键</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-关于在同一个标签内的操作"><a href="#1-关于在同一个标签内的操作" class="headerlink" title="1.关于在同一个标签内的操作"></a>1.关于在同一个标签内的操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Alt+Up                          //移动到上面的终端</span><br><span class="line">Ctrl+Shift+O                    //水平分割终端</span><br><span class="line">Ctrl+Shift+E                    //垂直分割终端</span><br><span class="line">Ctrl+Shift+Right                //在垂直分割的终端中将分割条向右移动</span><br><span class="line">Ctrl+Shift+Up                   //在水平分割的终端中将分割条向上移动</span><br><span class="line">Ctrl+Shift+S                    //隐藏/显示滚动条</span><br><span class="line">Ctrl+Shift+F                    //搜索</span><br><span class="line">Ctrl+Shift+C                    //复制选中的内容到剪贴板</span><br><span class="line">Ctrl+Shift+V                    //粘贴剪贴板的内容到此处</span><br><span class="line">Ctrl+Shift+W                    //关闭当前终端</span><br><span class="line">Ctrl+Shift+Q                    //退出当前窗口，当前窗口的所有终端都将被关闭</span><br><span class="line">Ctrl+Shift+X                    //最大化显示当前终端</span><br><span class="line">Ctrl+Shift+N or Ctrl+Tab        //移动到下一个终端</span><br><span class="line">Ctrl+Shift+P or Ctrl+Shift+Tab  //Crtl+Shift+Tab 移动到之前的一个终端</span><br></pre></td></tr></table></figure>
+<h3 id="2-有关各个标签之间的操作"><a href="#2-有关各个标签之间的操作" class="headerlink" title="2.有关各个标签之间的操作"></a>2.有关各个标签之间的操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">F11                             //全屏开关</span><br><span class="line">Ctrl+Shift+T                    //打开一个新的标签</span><br><span class="line">Ctrl+PageDown                   //移动到下一个标签</span><br><span class="line">Ctrl+Shift+PageDown             //将当前标签与其后一个标签交换位置</span><br><span class="line">Ctrl+Plus (+)                   //增大字体</span><br><span class="line">Ctrl+Minus (-)                  //减小字体</span><br><span class="line">Ctrl+Zero (0)                   //恢复字体到原始大小</span><br><span class="line">Ctrl+Shift+R                    //重置终端状态</span><br><span class="line">Ctrl+Shift+G                    //重置终端状态并clear屏幕</span><br><span class="line">Super+g                         //绑定所有的终端，以便向一个输入能够输入到所有的终端</span><br><span class="line">Super+Shift+G                   //解除绑定</span><br><span class="line">Super+t                         //绑定当前标签的所有终端，向一个终端输入的内容会自动输入到其他终端</span><br><span class="line">Super+Shift+T                   //解除绑定</span><br><span class="line"></span><br><span class="line">Ctrl+Shift+I                    //打开一个窗口，新窗口与原来的窗口使用同一个进程</span><br><span class="line">Super+i                         //打开一个新窗口，新窗口与原来的窗口使用不同的进程</span><br></pre></td></tr></table></figure>
+<h3 id="3-配置文件（改变终端的字体和背景等配置），地址为-HOME-config-terminator-config，推荐配色方案如下"><a href="#3-配置文件（改变终端的字体和背景等配置），地址为-HOME-config-terminator-config，推荐配色方案如下" class="headerlink" title="3.配置文件（改变终端的字体和背景等配置），地址为$HOME/.config/terminator/config，推荐配色方案如下:"></a>3.配置文件（改变终端的字体和背景等配置），地址为<code>$HOME/.config/terminator/config</code>，推荐配色方案如下:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[global_config]</span><br><span class="line">[keybindings]</span><br><span class="line">[layouts]</span><br><span class="line">  [[default]]</span><br><span class="line">    [[[child1]]]</span><br><span class="line">      parent = window0</span><br><span class="line">      type = Terminal</span><br><span class="line">    [[[window0]]]</span><br><span class="line">      parent = &quot;&quot;</span><br><span class="line">      type = Window</span><br><span class="line">[plugins]</span><br><span class="line">[profiles]</span><br><span class="line">  [[default]]</span><br><span class="line">    background_darkness = 0.92</span><br><span class="line">    background_type = transparent</span><br><span class="line">    cursor_color = &quot;#3036ec&quot;</span><br><span class="line">    custom_command = tmux</span><br><span class="line">    font = Monaco 12</span><br><span class="line">    foreground_color = &quot;#00ff00&quot;</span><br><span class="line">    login_shell = True</span><br><span class="line">    show_titlebar = False</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/terminator/" data-id="cjt8ji5mj000so1pv802nvize" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Terminator/">Terminator</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-svn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/svn/" class="article-date">
+  <time datetime="2019-03-14T08:17:11.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/svn/">版本控制器svn的本地多项目管理方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-服务器部署"><a href="#1-服务器部署" class="headerlink" title="1.服务器部署"></a>1.服务器部署</h3><p>   （1）安装svn<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install -y subversion</span><br></pre></td></tr></table></figure></p>
+<p>   （2）创建svn多版本库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir $HOME/svn</span><br><span class="line">svnadmin create $HOME/svn/project1</span><br><span class="line">svnadmin create $HOME/svn/project2</span><br></pre></td></tr></table></figure></p>
+<p>在相应目录下的<code>conf</code>文件夹中有如下三个文件：<br><code>svnserve.conf</code>：  svn服务配置文件下<br><code>passwd</code>：         用户名密码文件<br><code>authz</code>：          svn权限配置文件</p>
+<p>（3）配置svn（为便于配置管理，将所有版本库的“账号密码”和“登陆用户权限”等控制文件指定为同一个配置文件）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp $HOME/svn/project1/conf/passwd $HOME/svn/</span><br><span class="line">cp $HOME/svn/project1/conf/authz $HOME/svn/</span><br></pre></td></tr></table></figure></p>
+<p>修改每个项目版本库的<code>/conf/svnserve.conf</code>(访问控制文件):<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi $HOME/svn/project1/conf/svnserve.conf</span><br><span class="line">vi $HOME/svn/project2/conf/svnserve.conf</span><br></pre></td></tr></table></figure></p>
+<p><strong>修改内容如下：</strong><br>默认<code># anon-access = read</code> | 去掉首字符“#”，read改为none，表示不允许匿名访问<br>默认<code># auth-access = write</code> | 去掉首字符“#”<br>默认<code># password-db = passwd</code> | 改为password-db = ../../passwd，指向<code>$HOME/svn/passwd</code>；<br>默认<code># authz-db = authz</code> | 改为：authz-db = ../../authz，指向<code>$HOME/svn/authz</code><br><strong>修改后的文件内容如下：</strong><br><code>anon-access = none</code><br><code>auth-access = write</code><br><code>password-db = ../../passwd</code><br><code>authz-db = ../../authz</code></p>
+<p>（4）修改<code>$HOME/svn/passwd</code>文件内容：<br>［左为用户名、右为密码］<br><code>user1 = user1123</code><br><code>user2 = user2123</code></p>
+<p>（5）修改<code>$HOME/svn/authz</code>文件内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[groups]</span><br><span class="line">project1=user1</span><br><span class="line">project2=user1,user2</span><br><span class="line">%指定所有的版本库默认只读，root可读写</span><br><span class="line">[/]</span><br><span class="line">* = r</span><br><span class="line">root = rw</span><br><span class="line">%user1可读写project1版本库，@的含义可以用指针帮助理解</span><br><span class="line">[project1:/]</span><br><span class="line">@project1 = rw</span><br><span class="line">%user1,user2可读写project2版本库</span><br><span class="line">[project2:/]</span><br><span class="line">@project2 = rw</span><br></pre></td></tr></table></figure></p>
+<p>（6）启动服务器<code>$HOME/svn</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svnserve -d -r $HOME/svn % -d表示后台运行，-r表示服务器的根目录</span><br></pre></td></tr></table></figure></p>
+<p>即可启动<code>$HOME/svn/</code>中的所有项目版本库project1，project2</p>
+<p>（7）项目初始化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn import $HOME/yourFile file://$HOME/svn/project1</span><br></pre></td></tr></table></figure></p>
+<p>将会拷贝目录yourFile到版本库的project1下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn list file://$HOME/svn/project1	%用来查看版本库中的文件</span><br></pre></td></tr></table></figure></p>
+<p>（8）关闭svn<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall svnserve</span><br></pre></td></tr></table></figure></p>
+<p>注意：修改<code>authz</code>和<code>passwd</code>文件后，需要关闭和重启svn服务器</p>
+<h3 id="2-客户端操作"><a href="#2-客户端操作" class="headerlink" title="2.客户端操作"></a>2.客户端操作</h3><p>（1）将文件从版本库取出到本地目录<br>首先进入你想存放取出文件的位置，然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn checkout svn://192.168.0.100/project1	%接着输入用户名和密码</span><br></pre></td></tr></table></figure></p>
+<p>这里的数字代表本地电脑的IP，用ifconfig命令查询，IP后紧跟的仅仅是<code>$HOME/svn</code>目录以下的项目名<br>（这是因为在启动服务器时已经将<code>$HOME/svn</code>设为根目录了）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn checkout svn://192.168.0.100/project1 -r 5 	%取出指定版本的文件</span><br></pre></td></tr></table></figure></p>
+<p>（2）往版本库中添加新的文件，更新版本库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn add xxx.txt     %此命令得在checkout命令执行的目录中才能生效</span><br><span class="line">svn commit   xxx.txt -m &quot;add 123.txt&quot;  #“”中填写备注，只提交123.txt</span><br><span class="line">svn commit -m &quot;LogMessage&quot;   	%提交当前目录下的所有文件</span><br></pre></td></tr></table></figure></p>
+<p>（3）删除文件，更新版本库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn delete xxx.txt</span><br><span class="line">svn ci -m &quot;delete testfile&quot;</span><br></pre></td></tr></table></figure></p>
+<p>（4）更新本地工作副本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn update -r 200 xxx.txt 	%将本地的文件xxx.txt还原到版本200</span><br><span class="line">svn update	%如果后面没有目录，默认将当前目录以及子目录下的所有文件都更新到最新版本</span><br></pre></td></tr></table></figure></p>
+<p>（5）查看文件修改记录，及其版本号的变化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn log xxx.txt</span><br></pre></td></tr></table></figure></p>
+<p>（6）查看文件详细信息（路径、版本、时间、提交者等信息）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn info xxx.txt</span><br></pre></td></tr></table></figure></p>
+<p>（7）比较版本间的差异<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn diff -r 2:102 xxx.txt 	%对版本2和版本102比较差异</span><br></pre></td></tr></table></figure></p>
+<p>（8）版本库下的文件和目录列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">svn list file://$HOME/svn/project1</span><br></pre></td></tr></table></figure></p>
+<p>（9）创建新目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn mkdir myDirectory</span><br><span class="line">svn commit -m &quot;Add myDirectory&quot;</span><br></pre></td></tr></table></figure></p>
+<p>（10）移动文件至其他目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mv 001.txt ../ADirectory</span><br><span class="line">svn add ../ADirectory/001.txt</span><br><span class="line">svn delete 001.txt</span><br><span class="line">svn commit -m &quot;Move 001.txt to ADirectory&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-将svn服务器置于-opt目录下的注意事项"><a href="#3-将svn服务器置于-opt目录下的注意事项" class="headerlink" title="3. 将svn服务器置于/opt目录下的注意事项"></a>3. 将svn服务器置于/opt目录下的注意事项</h3><p>（1）必须以超级用户的身份（su或sudo）开启服务器<br>（2）普通用户身份可以提交新版本</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/svn/" data-id="cjt8ji5mg000po1pvnmfj3xjn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVN/">SVN</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-latex-flowchart" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/latex-flowchart/" class="article-date">
+  <time datetime="2019-03-14T08:07:55.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/LaTeX/">LaTeX</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/latex-flowchart/">制作含LaTeX公式的流程图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装dia编辑器和inkscape"><a href="#1-安装dia编辑器和inkscape" class="headerlink" title="1. 安装dia编辑器和inkscape"></a>1. 安装dia编辑器和inkscape</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install dia</span><br><span class="line">sudo dnf install inkscape</span><br></pre></td></tr></table></figure>
+<h3 id="2-inkscape中使用LaTeX命令写数学公式，需要安装以下两个插件"><a href="#2-inkscape中使用LaTeX命令写数学公式，需要安装以下两个插件" class="headerlink" title="2. inkscape中使用LaTeX命令写数学公式，需要安装以下两个插件:"></a>2. inkscape中使用LaTeX命令写数学公式，需要安装以下两个插件:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install ghostscript</span><br><span class="line">sudo dnf install pstoedit</span><br></pre></td></tr></table></figure>
+<h3 id="3-dia与inkscape混合使用方法"><a href="#3-dia与inkscape混合使用方法" class="headerlink" title="3. dia与inkscape混合使用方法"></a>3. dia与inkscape混合使用方法</h3><ul>
+<li>在dia中画流程图，保存为.dia格式</li>
+<li>用inkscape打开xxx.dia文件</li>
+<li>依次点击“扩展” – “渲染” – “LaTeX”</li>
+<li>在对话框中的第一行输入$\mu &gt; \mu_{max}?$，再点击“应用”，就会出现编译后的LaTeX字体（出现的位置一般在右下方），</li>
+<li>此字体可以理解为一个图片，可以拖动、放大与缩小，可将其拖动到流程图中</li>
+<li>将编辑好后的流程图保存为.svg格式，便于以后的修改<h3 id="4-eps图片的导出"><a href="#4-eps图片的导出" class="headerlink" title="4. eps图片的导出"></a>4. eps图片的导出</h3>（1）dia：点击“文件”–“导出”，选择eps格式（Pango）<br>（2）inkscape：点击“文件”–“保存副本”，选择eps格式</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/latex-flowchart/" data-id="cjt8ji5lw000bo1pvr8b59kar" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FlowChart/">FlowChart</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-pdf-manipulation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/14/pdf-manipulation/" class="article-date">
@@ -113,7 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/pdf-manipulation/" data-id="cjtcp950a000shspv4uvjzftz" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/pdf-manipulation/" data-id="cjt8ji5m3000io1pvspva3map" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PDF/">PDF</a></li></ul>
@@ -160,7 +469,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/gnome-theme-setup/" data-id="cjtcp94zn0006hspvd04pr4tl" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/gnome-theme-setup/" data-id="cjt8ji5ln0005o1pvtzf44r5x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gnome/">Gnome</a></li></ul>
@@ -210,7 +519,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjtcp94z50000hspvexucqj56" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjt8ji5lg0001o1pv5kzfv9mj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
@@ -255,7 +564,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjtcp94zl0005hspv9qk4foxo" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjt8ji5ll0004o1pvek4gkn2f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
@@ -267,191 +576,11 @@
 
 
   
-    <article id="post-adobe-flash-player" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/14/adobe-flash-player/" class="article-date">
-  <time datetime="2019-03-14T07:00:51.000Z" itemprop="datePublished">2019-03-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/14/adobe-flash-player/">adobe flash player 软件源</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-添加源"><a href="#1-添加源" class="headerlink" title="1. 添加源"></a>1. 添加源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm</span><br></pre></td></tr></table></figure>
-<h3 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install flash-plugin</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjtcp94zc0001hspvx44j2puj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-okular-video" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/14/okular-video/" class="article-date">
-  <time datetime="2019-03-14T06:30:48.000Z" itemprop="datePublished">2019-03-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/14/okular-video/">okular动画播放问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-安装okular"><a href="#1-安装okular" class="headerlink" title="1. 安装okular"></a>1. 安装okular</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install  okular</span><br></pre></td></tr></table></figure>
-<h3 id="2-手动更新okular为最新版本"><a href="#2-手动更新okular为最新版本" class="headerlink" title="2.手动更新okular为最新版本"></a>2.手动更新okular为最新版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install \</span><br><span class="line">https://kojipkgs.fedoraproject.org//packages/okular/18.04.3/1.fc28/x86_64/okular-18.04.3-1.fc28.x86_64.rpm \</span><br><span class="line">https://kojipkgs.fedoraproject.org//packages/okular/18.04.3/1.fc28/x86_64/okular-devel-18.04.3-1.fc28.x86_64.rpm \</span><br><span class="line">https://kojipkgs.fedoraproject.org//packages/okular/18.04.3/1.fc28/x86_64/okular-libs-18.04.3-1.fc28.x86_64.rpm</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjtcp9507000phspv4jm6yvsm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Okular/">Okular</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-router_setup" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/12/router_setup/" class="article-date">
-  <time datetime="2019-03-12T10:31:30.000Z" itemprop="datePublished">2019-03-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/router_setup/">机群ip地址更换后，路由器设置方法（TP-LINK）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-进入路由器管理界面："><a href="#1-进入路由器管理界面：" class="headerlink" title="1. 进入路由器管理界面："></a>1. 进入路由器管理界面：</h3><p>通过与路由器相连的电脑浏览器进入路由器管理界面，地址<a href="http://192.168.1.1" target="_blank" rel="noopener">http://192.168.1.1</a></p>
-<h3 id="2-设置静态IP："><a href="#2-设置静态IP：" class="headerlink" title="2. 设置静态IP："></a>2. 设置静态IP：</h3><p>依次点击“设置向导”-“下一步”-“静态IP”，然后设置与新ip相关的参数，包括IP地址，子网掩码，网关，DNS；</p>
-<h3 id="3-设置MAC地址："><a href="#3-设置MAC地址：" class="headerlink" title="3. 设置MAC地址："></a>3. 设置MAC地址：</h3><p>依次点击“网络参数”-“MAC地址克隆”，输入新ip的MAC地址；</p>
-<h3 id="4-设置局域网电脑端口："><a href="#4-设置局域网电脑端口：" class="headerlink" title="4. 设置局域网电脑端口："></a>4. 设置局域网电脑端口：</h3><p>依次点击“转发规则”-“虚拟服务器”-“添加新条目”：针对老机群，服务端口号为22，内部端口号也为22，<br>ip地址为192.168.1.11，保存；针对新机群，服务端口号为522，内部端口号为22，ip地址为192.168.1.5，保存。<br>至此，已经可以通过新的ip地址访问机群了。</p>
-<h3 id="5-补充："><a href="#5-补充：" class="headerlink" title="5. 补充："></a>5. 补充：</h3><p>为了避免同一局域网的所有电脑都通过新ip走流量，可通过设置MAC地址过滤来指定能够通过路由器连接互联网的电脑，<br>依次点击“安全设置”-“MAC地址过滤”-“添加新条目”，输入允许通过的电脑的MAC地址，并选择“允许通过”，保存；<br>再依次点击“安全设置”-“防火墙设置”-“开启防火墙”-“开启MAC地址过滤”，保存。注意：机群的MAC地址也必须<br>添加到允许的MAC地址中，否则无法登陆机群。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjtcp950d000vhspv0v5s4jn2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/12/hello-world/" class="article-date">
-  <time datetime="2019-03-12T03:27:02.637Z" itemprop="datePublished">2019-03-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjtcp94zv000bhspv1n84sbow" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -472,7 +601,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP/">IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/badblock/">badblock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/texlive/">texlive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ypbind/">ypbind</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asus/">Asus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP/">IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/badblock/">badblock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rpm/">rpm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/singleClick/">singleClick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/startdict/">startdict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/texlive/">texlive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wps/">wps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ypbind/">ypbind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zh2en/">zh2en</a></li></ul>
     </div>
   </div>
 
@@ -482,7 +611,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/badblock/" style="font-size: 10px;">badblock</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a> <a href="/tags/texlive/" style="font-size: 10px;">texlive</a> <a href="/tags/ypbind/" style="font-size: 10px;">ypbind</a>
+      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/Asus/" style="font-size: 10px;">Asus</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/badblock/" style="font-size: 10px;">badblock</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/singleClick/" style="font-size: 10px;">singleClick</a> <a href="/tags/startdict/" style="font-size: 10px;">startdict</a> <a href="/tags/texlive/" style="font-size: 10px;">texlive</a> <a href="/tags/wps/" style="font-size: 10px;">wps</a> <a href="/tags/ypbind/" style="font-size: 10px;">ypbind</a> <a href="/tags/zh2en/" style="font-size: 10px;">zh2en</a>
     </div>
   </div>
 
@@ -504,23 +633,23 @@
       <ul>
         
           <li>
-            <a href="/2019/03/17/badblock/">扫面硬盘坏道</a>
+            <a href="/2019/03/17/wps/">安装wps</a>
           </li>
         
           <li>
-            <a href="/2019/03/17/vim-replace/">vim替换后续几行中的指定字符</a>
+            <a href="/2019/03/17/singleClick/">Gnome 单击打开文件</a>
           </li>
         
           <li>
-            <a href="/2019/03/17/nis-intro/">NIS服务</a>
+            <a href="/2019/03/17/stardict/">安装stardict屏幕取词软件</a>
           </li>
         
           <li>
-            <a href="/2019/03/17/ypbind-error/">ypbind error： YPPROC_DOMAIN_NOT_FOUND</a>
+            <a href="/2019/03/17/rpm-fusion/">安装rpm fusion软件库</a>
           </li>
         
           <li>
-            <a href="/2019/03/17/ip-setup/">修改本地ip、网关、子网掩码</a>
+            <a href="/2019/03/17/zh2en-file/">家目录文件夹名称中文改英文</a>
           </li>
         
       </ul>
