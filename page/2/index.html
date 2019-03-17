@@ -66,6 +66,112 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-pdf-manipulation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/pdf-manipulation/" class="article-date">
+  <time datetime="2019-03-14T08:02:44.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/pdf-manipulation/">pdf的合并、编辑、改变尺寸</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-合并软件pdf-stapler"><a href="#1-合并软件pdf-stapler" class="headerlink" title="1.合并软件pdf-stapler"></a>1.合并软件pdf-stapler</h3><p>安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install pdf-stapler</span><br></pre></td></tr></table></figure></p>
+<p>合并：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pdf-stapler cat input1.pdf input2.pdf input3.pdf inputN.pdf output.pdf</span><br></pre></td></tr></table></figure></p>
+<p>最后一个output.pdf代表合并后的pdf文件，该文件名不能是已存在的文件名，即没有覆盖功能</p>
+<h3 id="2-编辑软件pdfedit"><a href="#2-编辑软件pdfedit" class="headerlink" title="2.编辑软件pdfedit"></a>2.编辑软件pdfedit</h3><p>安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install pdfedit</span><br></pre></td></tr></table></figure></p>
+<p>使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pdfedit	%打开图形界面，具体功能很多，尚未仔细研究</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-改变pdf尺寸的软件gimp"><a href="#3-改变pdf尺寸的软件gimp" class="headerlink" title="3.改变pdf尺寸的软件gimp"></a>3.改变pdf尺寸的软件gimp</h3><ul>
+<li>安装：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install gimp</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>点击“文件”–“打开”导入文件，导入时需要输入尺寸，该尺寸的大小决定图片的分辨率，尽量符合原图片的大小</p>
+</li>
+<li><p>点击“图像”–“打印大小”，输入目标尺寸</p>
+</li>
+<li><p>点击“文件”–“overwrite xxx.pdf”来更新pdf文件</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/pdf-manipulation/" data-id="cjtcp950a000shspv4uvjzftz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PDF/">PDF</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-gnome-theme-setup" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/gnome-theme-setup/" class="article-date">
+  <time datetime="2019-03-14T07:48:30.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/gnome-theme-setup/">修改gnome主题、图标、Shell</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装gnome-tweak-tool"><a href="#1-安装gnome-tweak-tool" class="headerlink" title="1.安装gnome-tweak-tool"></a>1.安装gnome-tweak-tool</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install gnome-tweak-tool</span><br></pre></td></tr></table></figure>
+<h3 id="2-下载主题和图标"><a href="#2-下载主题和图标" class="headerlink" title="2.下载主题和图标"></a>2.下载主题和图标</h3><p>（1）在网站<a href="https://www.gnome-look.org/上下载喜欢的主题（themes）和图标（icons）" target="_blank" rel="noopener">https://www.gnome-look.org/上下载喜欢的主题（themes）和图标（icons）</a><br>（2）将主题文件解压到/usr/share/themes，图标文件解压到/usr/share/icons<br>（3）打开gnome-tweak-tool，进入“外观”，‘GTK+’对应主题文件，‘图标’对应图标文件，Shell主题暂时无法选择，在进行下面的第3步后就可以选择了</p>
+<h3 id="3-安装Dock扩展"><a href="#3-安装Dock扩展" class="headerlink" title="3.安装Dock扩展"></a>3.安装Dock扩展</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/micheleg/dash-to-dock.git</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>重启<br>进入“扩展”，点击“Dash to dock”和“User themes”<br>进入“外观”，在“Shell主题”中选择下载的主题</p>
+<h3 id="4-配置Dock"><a href="#4-配置Dock" class="headerlink" title="4.配置Dock"></a>4.配置Dock</h3><p>进入“扩展”–“Dash to dock”的设置栏进行个性化设置</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/gnome-theme-setup/" data-id="cjtcp94zn0006hspvd04pr4tl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gnome/">Gnome</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-adobe-reader-install" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/14/adobe-reader-install/" class="article-date">
@@ -104,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjtckxe6r0001wopvsiu1qfo8" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjtcp94z50000hspvexucqj56" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
@@ -149,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjtckxe700004wopv1v4b76yb" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjtcp94zl0005hspv9qk4foxo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
@@ -193,7 +299,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjtckxe6l0000wopv1anuiacj" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjtcp94zc0001hspvx44j2puj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
@@ -237,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjtckxe7c000iwopvbtaehh1r" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjtcp9507000phspv4jm6yvsm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Okular/">Okular</a></li></ul>
@@ -284,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjtckxe7k000pwopvzf2mdllz" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjtcp950d000vhspv0v5s4jn2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li></ul>
@@ -331,7 +437,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjtckxe76000awopv6x9vc6kn" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjtcp94zv000bhspv1n84sbow" class="article-share-link">Share</a>
       
       
     </footer>
@@ -366,7 +472,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP/">IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/texlive/">texlive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ypbind/">ypbind</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP/">IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/badblock/">badblock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/texlive/">texlive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ypbind/">ypbind</a></li></ul>
     </div>
   </div>
 
@@ -376,7 +482,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a> <a href="/tags/texlive/" style="font-size: 10px;">texlive</a> <a href="/tags/ypbind/" style="font-size: 10px;">ypbind</a>
+      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/badblock/" style="font-size: 10px;">badblock</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a> <a href="/tags/texlive/" style="font-size: 10px;">texlive</a> <a href="/tags/ypbind/" style="font-size: 10px;">ypbind</a>
     </div>
   </div>
 
@@ -398,6 +504,14 @@
       <ul>
         
           <li>
+            <a href="/2019/03/17/badblock/">扫面硬盘坏道</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/17/vim-replace/">vim替换后续几行中的指定字符</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/17/nis-intro/">NIS服务</a>
           </li>
         
@@ -407,14 +521,6 @@
         
           <li>
             <a href="/2019/03/17/ip-setup/">修改本地ip、网关、子网掩码</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/17/texlive-install/">安装texlive2016镜像</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/14/guake/">guake（下拉式终端）在gnome中无法唤醒的问题</a>
           </li>
         
       </ul>
