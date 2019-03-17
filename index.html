@@ -66,6 +66,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-texlive-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/17/texlive-install/" class="article-date">
+  <time datetime="2019-03-17T05:40:09.000Z" itemprop="datePublished">2019-03-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/17/texlive-install/">安装texlive2016镜像</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装镜像"><a href="#1-安装镜像" class="headerlink" title="1.安装镜像"></a>1.安装镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o loop texlive2016.iso /mnt</span><br><span class="line">cd /mnt</span><br><span class="line">sudo ./install-tl -gui %出现图形界面，&quot;安装方案&quot;选择&quot;scheme-full&quot;，</span><br><span class="line">                       %目录设置根据默认的路径进行修改，其他设置依照默认的，</span><br><span class="line">                       %最后点击&quot;安装TexLive&quot;，大约15分钟</span><br></pre></td></tr></table></figure>
+<p><img src="texlive-install/texlive.png" alt="Alt text"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-设置环境变量-bash与csh的环境变量语法不一样"><a href="#2-设置环境变量-bash与csh的环境变量语法不一样" class="headerlink" title="2.设置环境变量(bash与csh的环境变量语法不一样)"></a>2.设置环境变量(bash与csh的环境变量语法不一样)</h3><h4 id="（1）BASH"><a href="#（1）BASH" class="headerlink" title="（1）BASH:"></a>（1）BASH:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>输入以下语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># TeX Live 2016</span><br><span class="line">export MANPATH=/usr/local/texlive/2016/texmf-dist/doc/man:$&#123;MANPATH&#125;</span><br><span class="line">export INFOPATH=/usr/local/texlive/2016/texmf-dist/doc/info:$&#123;INFOPATH&#125;</span><br><span class="line">export PATH=/usr/local/texlive/2016/bin/x86_64-linux:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存关闭<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h4 id="（2）CSH"><a href="#（2）CSH" class="headerlink" title="（2）CSH:"></a>（2）CSH:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.cshrc</span><br></pre></td></tr></table></figure>
+<p>输入以下语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># TeX Live 2016</span><br><span class="line">setenv PATH /usr/local/texlive/2016/bin/x86_64-linux:$PATH</span><br><span class="line">setenv MANPATH /usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH</span><br></pre></td></tr></table></figure></p>
+<p>保存关闭<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.cshrc</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-检验是否安装成功"><a href="#3-检验是否安装成功" class="headerlink" title="3.检验是否安装成功"></a>3.检验是否安装成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xelatex --version %如果出现的是2016版本，则表示安装成功</span><br></pre></td></tr></table></figure>
+<h3 id="4-更新字体"><a href="#4-更新字体" class="headerlink" title="4.更新字体"></a>4.更新字体</h3><h4 id="（1）将下载的字体解压到-usr-share-fonts目录下"><a href="#（1）将下载的字体解压到-usr-share-fonts目录下" class="headerlink" title="（1）将下载的字体解压到/usr/share/fonts目录下"></a>（1）将下载的字体解压到<code>/usr/share/fonts</code>目录下</h4><h4 id="（2）更新字库"><a href="#（2）更新字库" class="headerlink" title="（2）更新字库"></a>（2）更新字库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fc-cache -fv</span><br></pre></td></tr></table></figure>
+<p>PS:如果还有不清楚的地方，可以参考下面这篇博客<br><a href="https://www.cnblogs.com/wenbosheng/archive/2016/08/03/5725834.html" target="_blank" rel="noopener">https://www.cnblogs.com/wenbosheng/archive/2016/08/03/5725834.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/17/texlive-install/" data-id="cjtcipbgh000vw0pvgcoxlf05" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/texlive/">texlive</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-guake" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/14/guake/" class="article-date">
@@ -97,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/guake/" data-id="cjt8ji5lp0006o1pv2a0douq4" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/guake/" data-id="cjtcipbf90006w0pvblwtotke" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Guake/">Guake</a></li></ul>
@@ -142,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/terminator/" data-id="cjt8ji5mj000so1pv802nvize" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/terminator/" data-id="cjtcipbg8000sw0pvaspj0elj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Terminator/">Terminator</a></li></ul>
@@ -210,7 +263,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/svn/" data-id="cjt8ji5mg000po1pvnmfj3xjn" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/svn/" data-id="cjtcipbg4000pw0pv9eoe0ccz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVN/">SVN</a></li></ul>
@@ -262,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/latex-flowchart/" data-id="cjt8ji5lw000bo1pvr8b59kar" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/latex-flowchart/" data-id="cjtcipbfn000bw0pvx9pvr2d3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FlowChart/">FlowChart</a></li></ul>
@@ -321,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/pdf-manipulation/" data-id="cjt8ji5m3000io1pvspva3map" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/pdf-manipulation/" data-id="cjtcipbfx000iw0pvp9ylzenm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PDF/">PDF</a></li></ul>
@@ -368,7 +421,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/gnome-theme-setup/" data-id="cjt8ji5ln0005o1pvtzf44r5x" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/gnome-theme-setup/" data-id="cjtcipbf70005w0pvu255414d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gnome/">Gnome</a></li></ul>
@@ -418,7 +471,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjt8ji5lg0001o1pv5kzfv9mj" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjtcipber0001w0pv1uuvtiea" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
@@ -463,7 +516,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjt8ji5ll0004o1pvek4gkn2f" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjtcipbf20004w0pvzu4torxc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
@@ -507,54 +560,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjt8ji5l90000o1pve5oaqguj" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjtcipbef0000w0pv3m2lul55" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-okular-video" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/14/okular-video/" class="article-date">
-  <time datetime="2019-03-14T06:30:48.000Z" itemprop="datePublished">2019-03-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Linux/">Linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/14/okular-video/">okular动画播放问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-安装okular"><a href="#1-安装okular" class="headerlink" title="1. 安装okular"></a>1. 安装okular</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install  okular</span><br></pre></td></tr></table></figure>
-<h3 id="2-手动更新okular为最新版本"><a href="#2-手动更新okular为最新版本" class="headerlink" title="2.手动更新okular为最新版本"></a>2.手动更新okular为最新版本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install \</span><br><span class="line">https://kojipkgs.fedoraproject.org//packages/okular/18.04.3/1.fc28/x86_64/okular-18.04.3-1.fc28.x86_64.rpm \</span><br><span class="line">https://kojipkgs.fedoraproject.org//packages/okular/18.04.3/1.fc28/x86_64/okular-devel-18.04.3-1.fc28.x86_64.rpm \</span><br><span class="line">https://kojipkgs.fedoraproject.org//packages/okular/18.04.3/1.fc28/x86_64/okular-libs-18.04.3-1.fc28.x86_64.rpm</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjt8ji5lz000go1pvr5dktqq0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Okular/">Okular</a></li></ul>
 
     </footer>
   </div>
@@ -588,7 +597,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/texlive/">texlive</a></li></ul>
     </div>
   </div>
 
@@ -598,7 +607,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a>
+      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a> <a href="/tags/texlive/" style="font-size: 10px;">texlive</a>
     </div>
   </div>
 
@@ -620,6 +629,10 @@
       <ul>
         
           <li>
+            <a href="/2019/03/17/texlive-install/">安装texlive2016镜像</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/14/guake/">guake（下拉式终端）在gnome中无法唤醒的问题</a>
           </li>
         
@@ -633,10 +646,6 @@
         
           <li>
             <a href="/2019/03/14/latex-flowchart/">制作含LaTeX公式的流程图</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/14/pdf-manipulation/">pdf的合并、编辑、改变尺寸</a>
           </li>
         
       </ul>

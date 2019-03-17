@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>安装texlive2016镜像 | BigOrange&#39;s Personal Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.安装镜像12345sudo mount -o loop texlive2016.iso /mntcd /mntsudo ./install-tl -gui %出现图形界面，&amp;quot;安装方案&amp;quot;选择&amp;quot;scheme-full&amp;quot;，                       %目录设置根据默认的路径进行修改，其他设置依照默认的，">
+<meta name="keywords" content="texlive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="安装texlive2016镜像">
+<meta property="og:url" content="http://bigorangewjc.github.io/2019/03/17/texlive-install/index.html">
+<meta property="og:site_name" content="BigOrange&#39;s Personal Website">
+<meta property="og:description" content="1.安装镜像12345sudo mount -o loop texlive2016.iso /mntcd /mntsudo ./install-tl -gui %出现图形界面，&amp;quot;安装方案&amp;quot;选择&amp;quot;scheme-full&amp;quot;，                       %目录设置根据默认的路径进行修改，其他设置依照默认的，">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://bigorangewjc.github.io/2019/03/17/texlive-install/texlive-install/texlive.png">
+<meta property="og:updated_time" content="2019-03-17T06:06:47.234Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="安装texlive2016镜像">
+<meta name="twitter:description" content="1.安装镜像12345sudo mount -o loop texlive2016.iso /mntcd /mntsudo ./install-tl -gui %出现图形界面，&amp;quot;安装方案&amp;quot;选择&amp;quot;scheme-full&amp;quot;，                       %目录设置根据默认的路径进行修改，其他设置依照默认的，">
+<meta name="twitter:image" content="http://bigorangewjc.github.io/2019/03/17/texlive-install/texlive-install/texlive.png">
+  
+    <link rel="alternate" href="/atom.xml" title="BigOrange&#39;s Personal Website" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">BigOrange&#39;s Personal Website</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Research and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://bigorangewjc.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-texlive-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/17/texlive-install/" class="article-date">
+  <time datetime="2019-03-17T05:40:09.000Z" itemprop="datePublished">2019-03-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      安装texlive2016镜像
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装镜像"><a href="#1-安装镜像" class="headerlink" title="1.安装镜像"></a>1.安装镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o loop texlive2016.iso /mnt</span><br><span class="line">cd /mnt</span><br><span class="line">sudo ./install-tl -gui %出现图形界面，&quot;安装方案&quot;选择&quot;scheme-full&quot;，</span><br><span class="line">                       %目录设置根据默认的路径进行修改，其他设置依照默认的，</span><br><span class="line">                       %最后点击&quot;安装TexLive&quot;，大约15分钟</span><br></pre></td></tr></table></figure>
+<p><img src="texlive-install/texlive.png" alt="Alt text"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-设置环境变量-bash与csh的环境变量语法不一样"><a href="#2-设置环境变量-bash与csh的环境变量语法不一样" class="headerlink" title="2.设置环境变量(bash与csh的环境变量语法不一样)"></a>2.设置环境变量(bash与csh的环境变量语法不一样)</h3><h4 id="（1）BASH"><a href="#（1）BASH" class="headerlink" title="（1）BASH:"></a>（1）BASH:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>输入以下语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># TeX Live 2016</span><br><span class="line">export MANPATH=/usr/local/texlive/2016/texmf-dist/doc/man:$&#123;MANPATH&#125;</span><br><span class="line">export INFOPATH=/usr/local/texlive/2016/texmf-dist/doc/info:$&#123;INFOPATH&#125;</span><br><span class="line">export PATH=/usr/local/texlive/2016/bin/x86_64-linux:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存关闭<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h4 id="（2）CSH"><a href="#（2）CSH" class="headerlink" title="（2）CSH:"></a>（2）CSH:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.cshrc</span><br></pre></td></tr></table></figure>
+<p>输入以下语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># TeX Live 2016</span><br><span class="line">setenv PATH /usr/local/texlive/2016/bin/x86_64-linux:$PATH</span><br><span class="line">setenv MANPATH /usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH</span><br></pre></td></tr></table></figure></p>
+<p>保存关闭<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.cshrc</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-检验是否安装成功"><a href="#3-检验是否安装成功" class="headerlink" title="3.检验是否安装成功"></a>3.检验是否安装成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xelatex --version %如果出现的是2016版本，则表示安装成功</span><br></pre></td></tr></table></figure>
+<h3 id="4-更新字体"><a href="#4-更新字体" class="headerlink" title="4.更新字体"></a>4.更新字体</h3><h4 id="（1）将下载的字体解压到-usr-share-fonts目录下"><a href="#（1）将下载的字体解压到-usr-share-fonts目录下" class="headerlink" title="（1）将下载的字体解压到/usr/share/fonts目录下"></a>（1）将下载的字体解压到<code>/usr/share/fonts</code>目录下</h4><h4 id="（2）更新字库"><a href="#（2）更新字库" class="headerlink" title="（2）更新字库"></a>（2）更新字库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fc-cache -fv</span><br></pre></td></tr></table></figure>
+<p>PS:如果还有不清楚的地方，可以参考下面这篇博客<br><a href="https://www.cnblogs.com/wenbosheng/archive/2016/08/03/5725834.html" target="_blank" rel="noopener">https://www.cnblogs.com/wenbosheng/archive/2016/08/03/5725834.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/17/texlive-install/" data-id="cjtcipbgh000vw0pvgcoxlf05" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/texlive/">texlive</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/14/guake/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">guake（下拉式终端）在gnome中无法唤醒的问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/texlive/">texlive</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a> <a href="/tags/texlive/" style="font-size: 10px;">texlive</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/17/texlive-install/">安装texlive2016镜像</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/14/guake/">guake（下拉式终端）在gnome中无法唤醒的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/14/terminator/">terminator（可分割式终端）快捷键</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/14/svn/">版本控制器svn的本地多项目管理方法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/14/latex-flowchart/">制作含LaTeX公式的流程图</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Wang jincheng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
