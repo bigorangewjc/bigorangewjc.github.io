@@ -15,12 +15,12 @@
 <meta property="og:site_name" content="BigOrange&#39;s Personal Website">
 <meta property="og:description" content="1.安装镜像12345sudo mount -o loop texlive2016.iso /mntcd /mntsudo ./install-tl -gui %出现图形界面，&amp;quot;安装方案&amp;quot;选择&amp;quot;scheme-full&amp;quot;，                       %目录设置根据默认的路径进行修改，其他设置依照默认的，">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://bigorangewjc.github.io/2019/03/17/texlive-install/texlive-install/texlive.png">
-<meta property="og:updated_time" content="2019-03-17T06:06:47.234Z">
+<meta property="og:image" content="http://bigorangewjc.github.io/2019/03/17/texlive-install/texlive.png">
+<meta property="og:updated_time" content="2019-03-17T06:19:56.331Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安装texlive2016镜像">
 <meta name="twitter:description" content="1.安装镜像12345sudo mount -o loop texlive2016.iso /mntcd /mntsudo ./install-tl -gui %出现图形界面，&amp;quot;安装方案&amp;quot;选择&amp;quot;scheme-full&amp;quot;，                       %目录设置根据默认的路径进行修改，其他设置依照默认的，">
-<meta name="twitter:image" content="http://bigorangewjc.github.io/2019/03/17/texlive-install/texlive-install/texlive.png">
+<meta name="twitter:image" content="http://bigorangewjc.github.io/2019/03/17/texlive-install/texlive.png">
   
     <link rel="alternate" href="/atom.xml" title="BigOrange&#39;s Personal Website" type="application/atom+xml">
   
@@ -98,7 +98,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="1-安装镜像"><a href="#1-安装镜像" class="headerlink" title="1.安装镜像"></a>1.安装镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o loop texlive2016.iso /mnt</span><br><span class="line">cd /mnt</span><br><span class="line">sudo ./install-tl -gui %出现图形界面，&quot;安装方案&quot;选择&quot;scheme-full&quot;，</span><br><span class="line">                       %目录设置根据默认的路径进行修改，其他设置依照默认的，</span><br><span class="line">                       %最后点击&quot;安装TexLive&quot;，大约15分钟</span><br></pre></td></tr></table></figure>
-<p><img src="texlive-install/texlive.png" alt="Alt text"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/03/17/texlive-install/texlive.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt</span><br></pre></td></tr></table></figure>
 <h3 id="2-设置环境变量-bash与csh的环境变量语法不一样"><a href="#2-设置环境变量-bash与csh的环境变量语法不一样" class="headerlink" title="2.设置环境变量(bash与csh的环境变量语法不一样)"></a>2.设置环境变量(bash与csh的环境变量语法不一样)</h3><h4 id="（1）BASH"><a href="#（1）BASH" class="headerlink" title="（1）BASH:"></a>（1）BASH:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>输入以下语句：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># TeX Live 2016</span><br><span class="line">export MANPATH=/usr/local/texlive/2016/texmf-dist/doc/man:$&#123;MANPATH&#125;</span><br><span class="line">export INFOPATH=/usr/local/texlive/2016/texmf-dist/doc/info:$&#123;INFOPATH&#125;</span><br><span class="line">export PATH=/usr/local/texlive/2016/bin/x86_64-linux:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure></p>
 <p>保存关闭<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure></p>
@@ -112,7 +113,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/17/texlive-install/" data-id="cjtciqfk8000vzopvxrt32g1p" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/17/texlive-install/" data-id="cjtcj6kvf000verpv96sl84qo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/texlive/">texlive</a></li></ul>
