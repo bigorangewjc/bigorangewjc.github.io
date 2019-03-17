@@ -66,6 +66,145 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-adobe-reader-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/adobe-reader-install/" class="article-date">
+  <time datetime="2019-03-14T07:14:47.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/adobe-reader-install/">安装Adobe Reader</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-下载安装包-AdbeRdr9-5-5-1-i486linux-enu-tar-bz2"><a href="#1-下载安装包-AdbeRdr9-5-5-1-i486linux-enu-tar-bz2" class="headerlink" title="1.下载安装包 AdbeRdr9.5.5-1_i486linux_enu.tar.bz2"></a>1.下载安装包 AdbeRdr9.5.5-1_i486linux_enu.tar.bz2</h3><p>网址：<a href="ftp://ftp.adobe.com/pub/adobe/reader/unix/9.x/9.5.5/enu/" target="_blank" rel="noopener">ftp://ftp.adobe.com/pub/adobe/reader/unix/9.x/9.5.5/enu/</a></p>
+<h3 id="2-解压："><a href="#2-解压：" class="headerlink" title="2.解压："></a>2.解压：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -jxvf AdbeRdr9.5.5-1_i486linux_enu.tar.bz2</span><br></pre></td></tr></table></figure>
+<h3 id="3-进入解压后的目录，安装："><a href="#3-进入解压后的目录，安装：" class="headerlink" title="3.进入解压后的目录，安装："></a>3.进入解压后的目录，安装：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd AdobeReader</span><br><span class="line">./INSTALL</span><br></pre></td></tr></table></figure>
+<p>（过程中会询问安装路径）</p>
+<h3 id="4-安装所需插件"><a href="#4-安装所需插件" class="headerlink" title="4.安装所需插件"></a>4.安装所需插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install libxml2.so.2</span><br><span class="line">sudo dnf install libgdk_pixbuf_xlib-2.0.so.0</span><br><span class="line">sudo dnf install libgtk-x11-2.0.so.0</span><br></pre></td></tr></table></figure>
+<h3 id="5-设置环境变量（bash）"><a href="#5-设置环境变量（bash）" class="headerlink" title="5.设置环境变量（bash）"></a>5.设置环境变量（bash）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br><span class="line">export PATH=$HOME/Adobe/Reader9/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>（请根据第3步的安装路径设置环境变量PATH）</p>
+<h3 id="6-运行Adobe-Reader"><a href="#6-运行Adobe-Reader" class="headerlink" title="6.运行Adobe Reader"></a>6.运行Adobe Reader</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acroread</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjtckxe6r0001wopvsiu1qfo8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-eps2jpg" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/eps2jpg/" class="article-date">
+  <time datetime="2019-03-14T07:06:29.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/eps2jpg/">eps 转 jpg</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装ImageMagick、GhostScript"><a href="#1-安装ImageMagick、GhostScript" class="headerlink" title="1. 安装ImageMagick、GhostScript"></a>1. 安装ImageMagick、GhostScript</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install ImageMagick ghostscript</span><br></pre></td></tr></table></figure>
+<h3 id="2-转换一张eps为jpg"><a href="#2-转换一张eps为jpg" class="headerlink" title="2. 转换一张eps为jpg"></a>2. 转换一张eps为jpg</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convert -density 200 input.eps output.jpg</span><br></pre></td></tr></table></figure>
+<h3 id="3-批量转换当前目录中所有eps为jpg"><a href="#3-批量转换当前目录中所有eps为jpg" class="headerlink" title="3. 批量转换当前目录中所有eps为jpg"></a>3. 批量转换当前目录中所有eps为jpg</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -1 *.eps | xargs -n 1 bash -c &apos;convert -density 200 &quot;$0&quot; &quot;$&#123;0%.eps&#125;.jpg&quot;&apos;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjtckxe700004wopv1v4b76yb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-adobe-flash-player" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/adobe-flash-player/" class="article-date">
+  <time datetime="2019-03-14T07:00:51.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/adobe-flash-player/">adobe flash player 软件源</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-添加源"><a href="#1-添加源" class="headerlink" title="1. 添加源"></a>1. 添加源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+<h3 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install flash-plugin</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjtckxe6l0000wopv1anuiacj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-okular-video" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/14/okular-video/" class="article-date">
@@ -98,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjtcjcqgl000gqhpvxgubhujn" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjtckxe7c000iwopvbtaehh1r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Okular/">Okular</a></li></ul>
@@ -145,7 +284,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjtcjcqgt000mqhpv5u3yqrtl" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjtckxe7k000pwopvzf2mdllz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li></ul>
@@ -192,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjtcjcqgf000aqhpvnftj2mjh" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjtckxe76000awopv6x9vc6kn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -227,7 +366,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/texlive/">texlive</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP/">IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/texlive/">texlive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ypbind/">ypbind</a></li></ul>
     </div>
   </div>
 
@@ -237,7 +376,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a> <a href="/tags/texlive/" style="font-size: 10px;">texlive</a>
+      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a> <a href="/tags/texlive/" style="font-size: 10px;">texlive</a> <a href="/tags/ypbind/" style="font-size: 10px;">ypbind</a>
     </div>
   </div>
 
@@ -259,23 +398,23 @@
       <ul>
         
           <li>
+            <a href="/2019/03/17/nis-intro/">NIS服务</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/17/ypbind-error/">ypbind error： YPPROC_DOMAIN_NOT_FOUND</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/17/ip-setup/">修改本地ip、网关、子网掩码</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/17/texlive-install/">安装texlive2016镜像</a>
           </li>
         
           <li>
             <a href="/2019/03/14/guake/">guake（下拉式终端）在gnome中无法唤醒的问题</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/14/terminator/">terminator（可分割式终端）快捷键</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/14/svn/">版本控制器svn的本地多项目管理方法</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/14/latex-flowchart/">制作含LaTeX公式的流程图</a>
           </li>
         
       </ul>

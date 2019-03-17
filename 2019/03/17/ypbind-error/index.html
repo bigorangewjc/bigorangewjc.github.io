@@ -5,15 +5,20 @@
   
 
   
-  <title>Archives: 2019/3 | BigOrange&#39;s Personal Website</title>
+  <title>ypbind error： YPPROC_DOMAIN_NOT_FOUND | BigOrange&#39;s Personal Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="BigOrange&#39;s Personal Website">
-<meta property="og:url" content="http://bigorangewjc.github.io/archives/2019/03/page/2/index.html">
+  <meta name="description" content="在无路由器的前提下，引起ypbind无法找到域名的原因可能是本机的网关和ip地址与nis服务器不匹配。 比如nis服务器ip地址为192.168.1.xxx，而本机的ip地址是192.168.2.xxx，也就是说本机网关为192.168.2.1，那么本机和服务器就会因为不在一个网段上而无法相互通信。 所以当A计算机和B计算机无法实现数据互通时（无路由器），首先查询（查询命令/sbin/ifconf">
+<meta name="keywords" content="ypbind">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ypbind error： YPPROC_DOMAIN_NOT_FOUND">
+<meta property="og:url" content="http://bigorangewjc.github.io/2019/03/17/ypbind-error/index.html">
 <meta property="og:site_name" content="BigOrange&#39;s Personal Website">
+<meta property="og:description" content="在无路由器的前提下，引起ypbind无法找到域名的原因可能是本机的网关和ip地址与nis服务器不匹配。 比如nis服务器ip地址为192.168.1.xxx，而本机的ip地址是192.168.2.xxx，也就是说本机网关为192.168.2.1，那么本机和服务器就会因为不在一个网段上而无法相互通信。 所以当A计算机和B计算机无法实现数据互通时（无路由器），首先查询（查询命令/sbin/ifconf">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-17T07:02:57.674Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BigOrange&#39;s Personal Website">
+<meta name="twitter:title" content="ypbind error： YPPROC_DOMAIN_NOT_FOUND">
+<meta name="twitter:description" content="在无路由器的前提下，引起ypbind无法找到域名的原因可能是本机的网关和ip地址与nis服务器不匹配。 比如nis服务器ip地址为192.168.1.xxx，而本机的ip地址是192.168.2.xxx，也就是说本机网关为192.168.2.1，那么本机和服务器就会因为不在一个网段上而无法相互通信。 所以当A计算机和B计算机无法实现数据互通时（无路由器），首先查询（查询命令/sbin/ifconf">
   
     <link rel="alternate" href="/atom.xml" title="BigOrange&#39;s Personal Website" type="application/atom+xml">
   
@@ -64,140 +69,69 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/14/adobe-reader-install/" class="archive-article-date">
-  <time datetime="2019-03-14T07:14:47.000Z" itemprop="datePublished">Mar 14</time>
+        <section id="main"><article id="post-ypbind-error" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/17/ypbind-error/" class="article-date">
+  <time datetime="2019-03-17T06:57:15.000Z" itemprop="datePublished">2019-03-17</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/14/adobe-reader-install/">安装Adobe Reader</a>
+    <h1 class="article-title" itemprop="name">
+      ypbind error： YPPROC_DOMAIN_NOT_FOUND
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/14/eps2jpg/" class="archive-article-date">
-  <time datetime="2019-03-14T07:06:29.000Z" itemprop="datePublished">Mar 14</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/14/eps2jpg/">eps 转 jpg</a>
-    </h1>
-  
+        <p>在无路由器的前提下，引起ypbind无法找到域名的原因可能是本机的网关和ip地址与nis服务器不匹配。</p>
+<p>比如nis服务器ip地址为<code>192.168.1.xxx</code>，而本机的ip地址是<code>192.168.2.xxx</code>，也就是说本机网关为<code>192.168.2.1</code>，那么本机和服务器就会因为不在一个网段上而无法相互通信。</p>
+<p>所以当A计算机和B计算机无法实现数据互通时（无路由器），首先查询（查询命令<code>/sbin/ifconfig</code>）两个计算机的网关是否一样，是否能互相ping通。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/14/adobe-flash-player/" class="archive-article-date">
-  <time datetime="2019-03-14T07:00:51.000Z" itemprop="datePublished">Mar 14</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/14/adobe-flash-player/">adobe flash player 软件源</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/14/okular-video/" class="archive-article-date">
-  <time datetime="2019-03-14T06:30:48.000Z" itemprop="datePublished">Mar 14</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/17/ypbind-error/" data-id="cjtckxe7u0011wopv8y9tl4pu" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/14/okular-video/">okular动画播放问题</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/12/router_setup/" class="archive-article-date">
-  <time datetime="2019-03-12T10:31:30.000Z" itemprop="datePublished">Mar 12</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/12/router_setup/">机群ip地址更换后，路由器设置方法（TP-LINK）</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ypbind/">ypbind</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/17/nis-intro/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          NIS服务
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/17/ip-setup/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">修改本地ip、网关、子网掩码</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/12/hello-world/" class="archive-article-date">
-  <time datetime="2019-03-12T03:27:02.637Z" itemprop="datePublished">Mar 12</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/12/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/archives/2019/03/">&laquo; Prev</a><a class="page-number" href="/archives/2019/03/">1</a><span class="page-number current">2</span>
-  </nav>
 
 </section>
         
