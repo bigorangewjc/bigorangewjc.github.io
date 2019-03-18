@@ -66,6 +66,101 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-adobe-reader-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/adobe-reader-install/" class="article-date">
+  <time datetime="2019-03-14T07:14:47.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/adobe-reader-install/">安装Adobe Reader</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-下载安装包-AdbeRdr9-5-5-1-i486linux-enu-tar-bz2"><a href="#1-下载安装包-AdbeRdr9-5-5-1-i486linux-enu-tar-bz2" class="headerlink" title="1.下载安装包 AdbeRdr9.5.5-1_i486linux_enu.tar.bz2"></a>1.下载安装包 AdbeRdr9.5.5-1_i486linux_enu.tar.bz2</h3><p>网址：<a href="ftp://ftp.adobe.com/pub/adobe/reader/unix/9.x/9.5.5/enu/" target="_blank" rel="noopener">ftp://ftp.adobe.com/pub/adobe/reader/unix/9.x/9.5.5/enu/</a></p>
+<h3 id="2-解压："><a href="#2-解压：" class="headerlink" title="2.解压："></a>2.解压：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -jxvf AdbeRdr9.5.5-1_i486linux_enu.tar.bz2</span><br></pre></td></tr></table></figure>
+<h3 id="3-进入解压后的目录，安装："><a href="#3-进入解压后的目录，安装：" class="headerlink" title="3.进入解压后的目录，安装："></a>3.进入解压后的目录，安装：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd AdobeReader</span><br><span class="line">./INSTALL</span><br></pre></td></tr></table></figure>
+<p>（过程中会询问安装路径）</p>
+<h3 id="4-安装所需插件"><a href="#4-安装所需插件" class="headerlink" title="4.安装所需插件"></a>4.安装所需插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install libxml2.so.2</span><br><span class="line">sudo dnf install libgdk_pixbuf_xlib-2.0.so.0</span><br><span class="line">sudo dnf install libgtk-x11-2.0.so.0</span><br></pre></td></tr></table></figure>
+<h3 id="5-设置环境变量（bash）"><a href="#5-设置环境变量（bash）" class="headerlink" title="5.设置环境变量（bash）"></a>5.设置环境变量（bash）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br><span class="line">export PATH=$HOME/Adobe/Reader9/bin:$PATH</span><br></pre></td></tr></table></figure>
+<p>（请根据第3步的安装路径设置环境变量PATH）</p>
+<h3 id="6-运行Adobe-Reader"><a href="#6-运行Adobe-Reader" class="headerlink" title="6.运行Adobe Reader"></a>6.运行Adobe Reader</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acroread</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-reader-install/" data-id="cjtefm9bf000bospvur7e9tdx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-eps2jpg" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/14/eps2jpg/" class="article-date">
+  <time datetime="2019-03-14T07:06:29.000Z" itemprop="datePublished">2019-03-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/14/eps2jpg/">eps 转 jpg</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-安装ImageMagick、GhostScript"><a href="#1-安装ImageMagick、GhostScript" class="headerlink" title="1. 安装ImageMagick、GhostScript"></a>1. 安装ImageMagick、GhostScript</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install ImageMagick ghostscript</span><br></pre></td></tr></table></figure>
+<h3 id="2-转换一张eps为jpg"><a href="#2-转换一张eps为jpg" class="headerlink" title="2. 转换一张eps为jpg"></a>2. 转换一张eps为jpg</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">convert -density 200 input.eps output.jpg</span><br></pre></td></tr></table></figure>
+<h3 id="3-批量转换当前目录中所有eps为jpg"><a href="#3-批量转换当前目录中所有eps为jpg" class="headerlink" title="3. 批量转换当前目录中所有eps为jpg"></a>3. 批量转换当前目录中所有eps为jpg</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -1 *.eps | xargs -n 1 bash -c &apos;convert -density 200 &quot;$0&quot; &quot;$&#123;0%.eps&#125;.jpg&quot;&apos;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/eps2jpg/" data-id="cjtefm9b50005ospvqlk17pmh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-adobe-flash-player" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/14/adobe-flash-player/" class="article-date">
@@ -98,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjted83hp0001k4pvq234hpte" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/adobe-flash-player/" data-id="cjtefm9ap0000ospvbfv90yww" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Adobe/">Adobe</a></li></ul>
@@ -142,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjted83im000rk4pv7uze86zt" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/14/okular-video/" data-id="cjtefm9bs000wospvo1cb8ms4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Okular/">Okular</a></li></ul>
@@ -189,7 +284,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjted83il000ok4pvo0stopmu" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/router_setup/" data-id="cjtefm9c7001sospvgausvpgz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li></ul>
@@ -236,7 +331,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjted83kg002gk4pv6id2rhxd" class="article-share-link">Share</a>
+      <a data-url="http://bigorangewjc.github.io/2019/03/12/hello-world/" data-id="cjtefm9bp000qospvo0hf1zqe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -271,7 +366,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asus/">Asus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP/">IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/badblock/">badblock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rpm/">rpm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/singleClick/">singleClick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/startdict/">startdict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/texlive/">texlive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wps/">wps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ypbind/">ypbind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zh2en/">zh2en</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asus/">Asus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP/">IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XX-Net/">XX-Net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/badblock/">badblock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvida/">nvida</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rpm/">rpm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/singleClick/">singleClick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/startdict/">startdict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/texlive/">texlive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wps/">wps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ypbind/">ypbind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zh2en/">zh2en</a></li></ul>
     </div>
   </div>
 
@@ -281,7 +376,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/Asus/" style="font-size: 10px;">Asus</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/badblock/" style="font-size: 10px;">badblock</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/singleClick/" style="font-size: 10px;">singleClick</a> <a href="/tags/startdict/" style="font-size: 10px;">startdict</a> <a href="/tags/texlive/" style="font-size: 10px;">texlive</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wps/" style="font-size: 10px;">wps</a> <a href="/tags/ypbind/" style="font-size: 10px;">ypbind</a> <a href="/tags/zh2en/" style="font-size: 10px;">zh2en</a>
+      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/Asus/" style="font-size: 10px;">Asus</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/XX-Net/" style="font-size: 10px;">XX-Net</a> <a href="/tags/badblock/" style="font-size: 10px;">badblock</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a> <a href="/tags/nvida/" style="font-size: 10px;">nvida</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/singleClick/" style="font-size: 10px;">singleClick</a> <a href="/tags/startdict/" style="font-size: 10px;">startdict</a> <a href="/tags/texlive/" style="font-size: 10px;">texlive</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wps/" style="font-size: 10px;">wps</a> <a href="/tags/ypbind/" style="font-size: 10px;">ypbind</a> <a href="/tags/zh2en/" style="font-size: 10px;">zh2en</a>
     </div>
   </div>
 
@@ -303,6 +398,14 @@
       <ul>
         
           <li>
+            <a href="/2019/03/18/xx-net/">XX-Net安装</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/18/nvida-install/">安装nvidia显卡驱动</a>
+          </li>
+        
+          <li>
             <a href="/2019/03/17/wps/">安装wps</a>
           </li>
         
@@ -312,14 +415,6 @@
         
           <li>
             <a href="/2019/03/17/stardict/">安装stardict屏幕取词软件</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/17/rpm-fusion/">安装rpm fusion软件库</a>
-          </li>
-        
-          <li>
-            <a href="/2019/03/17/zh2en-file/">家目录文件夹名称中文改英文</a>
           </li>
         
       </ul>

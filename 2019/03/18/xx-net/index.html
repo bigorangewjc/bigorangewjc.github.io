@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>XX-Net安装 | BigOrange&#39;s Personal Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Chrome1、安装chrome1234sucd /etc/yum.repos.d/wget  http://repo.fdzh.org/chrome/google-chrome-mirrors.repodnf install google-chrome-stable 2、下载XX-net下载XX-Net最新版本，运行./start，自动下载对应的data文件夹(可能会同时下载python依赖，注">
+<meta name="keywords" content="XX-Net">
+<meta property="og:type" content="article">
+<meta property="og:title" content="XX-Net安装">
+<meta property="og:url" content="http://bigorangewjc.github.io/2019/03/18/xx-net/index.html">
+<meta property="og:site_name" content="BigOrange&#39;s Personal Website">
+<meta property="og:description" content="Chrome1、安装chrome1234sucd /etc/yum.repos.d/wget  http://repo.fdzh.org/chrome/google-chrome-mirrors.repodnf install google-chrome-stable 2、下载XX-net下载XX-Net最新版本，运行./start，自动下载对应的data文件夹(可能会同时下载python依赖，注">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-18T13:58:10.837Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="XX-Net安装">
+<meta name="twitter:description" content="Chrome1、安装chrome1234sucd /etc/yum.repos.d/wget  http://repo.fdzh.org/chrome/google-chrome-mirrors.repodnf install google-chrome-stable 2、下载XX-net下载XX-Net最新版本，运行./start，自动下载对应的data文件夹(可能会同时下载python依赖，注">
+  
+    <link rel="alternate" href="/atom.xml" title="BigOrange&#39;s Personal Website" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">BigOrange&#39;s Personal Website</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Research and Life</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://bigorangewjc.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-xx-net" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/18/xx-net/" class="article-date">
+  <time datetime="2019-03-18T13:23:13.000Z" itemprop="datePublished">2019-03-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      XX-Net安装
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h2><h3 id="1、安装chrome"><a href="#1、安装chrome" class="headerlink" title="1、安装chrome"></a>1、安装chrome</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line">cd /etc/yum.repos.d/</span><br><span class="line">wget  http://repo.fdzh.org/chrome/google-chrome-mirrors.repo</span><br><span class="line">dnf install google-chrome-stable</span><br></pre></td></tr></table></figure>
+<h3 id="2、下载XX-net"><a href="#2、下载XX-net" class="headerlink" title="2、下载XX-net"></a>2、下载XX-net</h3><p>下载<a href="https://github.com/XX-net/XX-Net/blob/master/code/default/download.md" target="_blank" rel="noopener">XX-Net最新版本</a>，运行./start，自动下载对应的data文件夹(可能会同时下载python依赖，注意：运行一定时间后，屏幕输出的代码都是绿色且无错误时就可以用<code>Ctrl+C</code>手动关闭了)；</p>
+<h3 id="3、将SwitchOmega文件夹中的SwitchOmega-crx文件，用鼠标拖入Chrome的about-extensions窗口-请在开发者模式下操作-；"><a href="#3、将SwitchOmega文件夹中的SwitchOmega-crx文件，用鼠标拖入Chrome的about-extensions窗口-请在开发者模式下操作-；" class="headerlink" title="3、将SwitchOmega文件夹中的SwitchOmega.crx文件，用鼠标拖入Chrome的about:extensions窗口(请在开发者模式下操作)；"></a>3、将SwitchOmega文件夹中的<code>SwitchOmega.crx</code>文件，用鼠标拖入Chrome的<code>about:extensions</code>窗口(请在开发者模式下操作)；</h3><h3 id="4、点击弹出的SwitchOmega界面左侧的”导入-导出”，点击”从备份文件恢复”，选择XX-Net3-7-7-SwitchOmega-OmegaOptions-bak"><a href="#4、点击弹出的SwitchOmega界面左侧的”导入-导出”，点击”从备份文件恢复”，选择XX-Net3-7-7-SwitchOmega-OmegaOptions-bak" class="headerlink" title="4、点击弹出的SwitchOmega界面左侧的”导入/导出”，点击”从备份文件恢复”，选择XX-Net3.7.7/SwitchOmega/OmegaOptions.bak;"></a>4、点击弹出的SwitchOmega界面左侧的”导入/导出”，点击”从备份文件恢复”，选择<code>XX-Net3.7.7/SwitchOmega/OmegaOptions.bak</code>;</h3><h3 id="5、点击左侧”GAE-Proxy自动切换”，再点击右侧”立即更新情景模式”；"><a href="#5、点击左侧”GAE-Proxy自动切换”，再点击右侧”立即更新情景模式”；" class="headerlink" title="5、点击左侧”GAE-Proxy自动切换”，再点击右侧”立即更新情景模式”；"></a>5、点击左侧”GAE-Proxy自动切换”，再点击右侧”立即更新情景模式”；</h3><h3 id="6、进入Chrome的设置界面-在”高级设置”中找到”管理证书设置-HTTPS-SSL-”，依次点击”授权中心”-“导入”，选择XX-Net3-7-7-data-gae-proxy-CA-crt"><a href="#6、进入Chrome的设置界面-在”高级设置”中找到”管理证书设置-HTTPS-SSL-”，依次点击”授权中心”-“导入”，选择XX-Net3-7-7-data-gae-proxy-CA-crt" class="headerlink" title="6、进入Chrome的设置界面,在”高级设置”中找到”管理证书设置(HTTPS/SSL)”，依次点击”授权中心”-“导入”，选择XX-Net3.7.7/data/gae_proxy/CA.crt;"></a>6、进入Chrome的设置界面,在”高级设置”中找到”管理证书设置(HTTPS/SSL)”，依次点击”授权中心”-“导入”，选择<code>XX-Net3.7.7/data/gae_proxy/CA.crt</code>;</h3><h3 id="7、下载虚拟网卡"><a href="#7、下载虚拟网卡" class="headerlink" title="7、下载虚拟网卡"></a>7、下载虚拟网卡</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install miredo</span><br><span class="line">sudo miredo</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<p>若出现teredo则正常</p>
+<h3 id="8、执行sudo-xx-net-sh，在Chrome地址栏中键入127-0-0-1：8085以进入XX-Net应用（低版本XX-Net可能需要在”配置”-“高级”中点击”使用Ipv6”，回到状态栏）如果显示“正在使用公用APPID”，则代表安装成功；"><a href="#8、执行sudo-xx-net-sh，在Chrome地址栏中键入127-0-0-1：8085以进入XX-Net应用（低版本XX-Net可能需要在”配置”-“高级”中点击”使用Ipv6”，回到状态栏）如果显示“正在使用公用APPID”，则代表安装成功；" class="headerlink" title="8、执行sudo ./xx_net.sh，在Chrome地址栏中键入127.0.0.1：8085以进入XX-Net应用（低版本XX-Net可能需要在”配置”-“高级”中点击”使用Ipv6”，回到状态栏）如果显示“正在使用公用APPID”，则代表安装成功；"></a>8、执行<code>sudo ./xx_net.sh</code>，在Chrome地址栏中键入<code>127.0.0.1：8085</code>以进入XX-Net应用（低版本XX-Net可能需要在”配置”-“高级”中点击”使用Ipv6”，回到状态栏）如果显示“正在使用公用APPID”，则代表安装成功；</h3><h3 id="9、接下来部署私有APPID，点击XX-Net应用中的”部署服务端”，输入已有的google-APPID-申请指南-，点击开始部署，此时会在Firefox中弹出登录google帐号的窗口，进入后点击确认；等待一段时间Chrome便可部署完毕，最后再点击“配置”-输入刚才的APPID，点击保存，此时如果“状态”栏显示“XX-Net-3-2-6，一切正常，你可以访问真正的互联网了。”，代表私有APPID部署成功。"><a href="#9、接下来部署私有APPID，点击XX-Net应用中的”部署服务端”，输入已有的google-APPID-申请指南-，点击开始部署，此时会在Firefox中弹出登录google帐号的窗口，进入后点击确认；等待一段时间Chrome便可部署完毕，最后再点击“配置”-输入刚才的APPID，点击保存，此时如果“状态”栏显示“XX-Net-3-2-6，一切正常，你可以访问真正的互联网了。”，代表私有APPID部署成功。" class="headerlink" title="9、接下来部署私有APPID，点击XX-Net应用中的”部署服务端”，输入已有的google APPID(申请指南)，点击开始部署，此时会在Firefox中弹出登录google帐号的窗口，进入后点击确认；等待一段时间Chrome便可部署完毕，最后再点击“配置”, 输入刚才的APPID，点击保存，此时如果“状态”栏显示“XX-Net 3.2.6，一切正常，你可以访问真正的互联网了。”，代表私有APPID部署成功。"></a>9、接下来部署私有APPID，点击XX-Net应用中的”部署服务端”，输入已有的google APPID(<a href="https://github.com/XX-net/XX-Net/wiki/how-to-create-my-appids" target="_blank" rel="noopener">申请指南</a>)，点击开始部署，此时会在Firefox中弹出登录google帐号的窗口，进入后点击确认；等待一段时间Chrome便可部署完毕，最后再点击“配置”, 输入刚才的APPID，点击保存，此时如果“状态”栏显示“XX-Net 3.2.6，一切正常，你可以访问真正的互联网了。”，代表私有APPID部署成功。</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://bigorangewjc.github.io/2019/03/18/xx-net/" data-id="cjtefm9d5002mospv5gez4nw6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/XX-Net/">XX-Net</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/18/nvida-install/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">安装nvidia显卡驱动</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Adobe/">Adobe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Asus/">Asus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FlowChart/">FlowChart</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guake/">Guake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP/">IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NIS/">NIS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Network/">Network</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Okular/">Okular</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PDF/">PDF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVN/">SVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Terminator/">Terminator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XX-Net/">XX-Net</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/badblock/">badblock</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eps2jpg/">eps2jpg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvida/">nvida</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/rpm/">rpm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/singleClick/">singleClick</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/startdict/">startdict</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/texlive/">texlive</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vim/">vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wps/">wps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ypbind/">ypbind</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/zh2en/">zh2en</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Adobe/" style="font-size: 20px;">Adobe</a> <a href="/tags/Asus/" style="font-size: 10px;">Asus</a> <a href="/tags/FlowChart/" style="font-size: 10px;">FlowChart</a> <a href="/tags/Gnome/" style="font-size: 10px;">Gnome</a> <a href="/tags/Guake/" style="font-size: 10px;">Guake</a> <a href="/tags/IP/" style="font-size: 10px;">IP</a> <a href="/tags/NIS/" style="font-size: 10px;">NIS</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Okular/" style="font-size: 10px;">Okular</a> <a href="/tags/PDF/" style="font-size: 10px;">PDF</a> <a href="/tags/SVN/" style="font-size: 10px;">SVN</a> <a href="/tags/Terminator/" style="font-size: 10px;">Terminator</a> <a href="/tags/XX-Net/" style="font-size: 10px;">XX-Net</a> <a href="/tags/badblock/" style="font-size: 10px;">badblock</a> <a href="/tags/eps2jpg/" style="font-size: 10px;">eps2jpg</a> <a href="/tags/nvida/" style="font-size: 10px;">nvida</a> <a href="/tags/rpm/" style="font-size: 10px;">rpm</a> <a href="/tags/singleClick/" style="font-size: 10px;">singleClick</a> <a href="/tags/startdict/" style="font-size: 10px;">startdict</a> <a href="/tags/texlive/" style="font-size: 10px;">texlive</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/wps/" style="font-size: 10px;">wps</a> <a href="/tags/ypbind/" style="font-size: 10px;">ypbind</a> <a href="/tags/zh2en/" style="font-size: 10px;">zh2en</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/18/xx-net/">XX-Net安装</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/18/nvida-install/">安装nvidia显卡驱动</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/17/wps/">安装wps</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/17/singleClick/">Gnome 单击打开文件</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/17/stardict/">安装stardict屏幕取词软件</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Wang jincheng<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
